@@ -1,0 +1,99 @@
+<!--2023/01/17-18:58-->
+<!--2023/02/28 03:06:53-->
+<header id="hello">
+    <p></p>
+    <div next_month_timer></div>
+</header>
+<main>
+    <div></div>
+    <div id="list">登録タイマーの一覧</div>
+    <ol id="cards">
+        <li onclick="clickBtn()">追加ボタンの開発中 (2023/07/15)</li>
+        <li onclick="clickBtn()"></li>
+    </ol>
+    <h1 id="title">
+        <a href="/timer/">Timer</a>
+    </h1>
+    <h6>
+        <a href="/">forestwizard</a>
+    </h6>
+    <div id="add_btn" onclick="viewForm()">+</div>
+</main>
+
+<script>
+(function() {
+    let present = new Date();
+    let next_month = (present.getMonth()+1)%12;
+    let next_month_view = next_month +1;
+    document.querySelector('header p').innerHTML = `${next_month_view} 月 まで あと`;
+    let next_month_year = next_month == 0 
+    ? (present.getFullYear() + 1)
+    : present.getFullYear();
+    const next_month_first = /*new Date(2023, 1, 27, 16, 52)*/
+    new Date(
+        next_month_year, next_month, 1
+    );
+    const next_month_card = new TimeCard(
+        next_month_first, 'next_month_timer'
+    );
+    next_month_card.display();
+    next_month_card.runTimer();
+    //next_month_card.runTimer();x
+}());    
+function clickBtn() {
+    alert("準備中😪💤💤");
+}
+
+function viewForm() {
+    let content = document.createElement('div');
+    content.style.cssText = new MainCssSet().form();
+    content.innerHTML = `
+    <p>Hello Dialog</p>
+    <form name="DateTimeForm">
+        title
+        <input type="text" name="title">
+        date
+        <input type="date" name="date">
+        time
+        <input type="time" name="time">
+        <input type="button" value="register" onclick="addDateCard()">
+    </form>
+    `;
+    new Dialog(content).show();
+    //console.log('addBtn');
+}
+
+function addDateCard(e) {
+    //e.preventDefault();
+    console.log(document.DateTimeForm['date'].value);
+    console.log(document.DateTimeForm['time'].value);
+    let title = document.DateTimeForm['title'].value;
+    let date = document.DateTimeForm['date'].value;
+    let time = document.DateTimeForm['time'].value;
+    //let date_card = new DateCard(date, time, title);
+    //date_collection.register(date_card);
+}
+
+</script>
+
+<script>
+    /*const main = new ComponentManager('/src/tmplt/');
+    main.addComponent('next_month_timer');
+    */
+
+</script>
+<script v>
+    /*console.log('Hello World');
+    //console.log($('vue'));
+    //console.log(main);
+    const main = new ComponentManager('/src/tmplt/');
+    //console.log(parent.open('/src/tmplt/main.html', ));
+    //let view = document.querySelectorAll('[view]');
+    main.addComponent('view').on('click', function() {
+        console.log('click');
+    }, null);
+    */
+</script>
+<!--Text-->
+<!--<script src="/src/tmplt/js/ab.js" type="text/javascript"></script>-->
+<style></style>
