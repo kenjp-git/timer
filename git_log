@@ -89,4 +89,69 @@ Date:   Mon Jul 17 21:17:52 2023 +0900
     first commit
 ~/.../forestwizard/timer $ git branch
 * master
-~/.../forestwizard/timer $ 
+~/.../forestwizard/timer $ git add
+Nothing specified, nothing added.
+hint: Maybe you wanted to say 'git add .'?
+hint: Turn this message off by running
+hint: "git config advice.addEmptyPathspec false"
+~/.../forestwizard/timer $ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        git_log
+
+nothing added to commit but untracked files present (use "git add" to track)
+~/.../forestwizard/timer $ git add -A
+~/.../forestwizard/timer $ git commit -m 'git_log'
+[master f0935c7] git_log
+ 1 file changed, 92 insertions(+)
+ create mode 100644 git_log
+~/.../forestwizard/timer $ git log
+commit f0935c72efc2f31544922677ac04aca3121e27be (HEAD -> master)
+Author: Buendia <kenneth.buendia.code@gmail.com>
+Date:   Mon Jul 17 21:22:53 2023 +0900
+
+    git_log
+
+commit ce6766bdb05894b5ca98002868cfb55b18cbcba2
+Author: Buendia <kenneth.buendia.code@gmail.com>
+Date:   Mon Jul 17 21:17:52 2023 +0900
+
+    first commit
+~/.../forestwizard/timer $ git branch datatime-register
+~/.../forestwizard/timer $ git log --graph
+* commit f0935c72efc2f31544922677ac04aca3121e27be (HEAD -> master, datatime-register)
+| Author: Buendia <kenneth.buendia.code@gmail.com>
+| Date:   Mon Jul 17 21:22:53 2023 +0900
+|
+|     git_log
+|
+* commit ce6766bdb05894b5ca98002868cfb55b18cbcba2
+  Author: Buendia <kenneth.buendia.code@gmail.com>
+  Date:   Mon Jul 17 21:17:52 2023 +0900
+
+      first commit
+~/.../forestwizard/timer $ git branch
+  datatime-register
+* master
+~/.../forestwizard/timer $ git checkout
+.git/          .vscode/       git_log        run.js         specification
+.htaccess      archives/      index.html     run0.js        src/
+~/.../forestwizard/timer $ git checkout datatime-register
+Switched to branch 'datatime-register'
+~/.../forestwizard/timer $ git log --graph
+* commit f0935c72efc2f31544922677ac04aca3121e27be (HEAD -> datatime-register, master)
+| Author: Buendia <kenneth.buendia.code@gmail.com>
+| Date:   Mon Jul 17 21:22:53 2023 +0900
+|
+|     git_log
+|
+* commit ce6766bdb05894b5ca98002868cfb55b18cbcba2
+  Author: Buendia <kenneth.buendia.code@gmail.com>
+  Date:   Mon Jul 17 21:17:52 2023 +0900
+
+      first commit
+~/.../forestwizard/timer $ git branch
+* datatime-register
+  master
+~/.../forestwizard/timer
