@@ -1,0 +1,92 @@
+#2023/07/17-21:20
+
+~/.../MyDevelopments/forestwizard $ cd timer/;ls -a
+.  ..  .htaccess  .vscode  archives  index.html  run.js  run0.js  specification  src
+~/.../forestwizard/timer $ git init
+hint: Using 'master' as the name for the initial branch. This default branch name
+hint: is subject to change. To configure the initial branch name to use in all
+hint: of your new repositories, which will suppress this warning, call:
+hint:
+hint:   git config --global init.defaultBranch <name>
+hint:
+hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+hint: 'development'. The just-created branch can be renamed via this command:
+hint:
+hint:   git branch -m <name>
+Initialized empty Git repository in /storage/emulated/0/MyDevelopments/forestwizard/timer/.git/
+~/.../forestwizard/timer $ ls -a
+.  ..  .git  .htaccess  .vscode  archives  index.html  run.js  run0.js  specification  src
+~/.../forestwizard/timer $ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        .htaccess
+        .vscode/
+        archives/
+        index.html
+        run.js
+        run0.js
+        specification
+        src/
+
+nothing added to commit but untracked files present (use "git add" to track)
+~/.../forestwizard/timer $ git log
+fatal: your current branch 'master' does not have any commits yet
+~/.../forestwizard/timer $ git branch
+~/.../forestwizard/timer $ git branch --list
+~/.../forestwizard/timer $ git add -A
+~/.../forestwizard/timer $ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   .htaccess
+        new file:   .vscode/launch.json
+        new file:   archives/js/init.js
+        new file:   index.html
+        new file:   run.js
+        new file:   run0.js
+        new file:   specification
+        new file:   src/css/style.css
+        new file:   src/js/ComponentManager.js
+        new file:   src/js/app.js
+        new file:   src/js/init.js
+        new file:   src/tmplt/add_time_form.html
+        new file:   src/tmplt/js/ab.js
+        new file:   src/tmplt/main.html
+        new file:   src/tmplt/next_month_timer.html
+        new file:   src/tmplt/view.html
+
+~/.../forestwizard/timer $ git commit -m 'first commit'
+[master (root-commit) ce6766b] first commit
+ 16 files changed, 1276 insertions(+)
+ create mode 100644 .htaccess
+ create mode 100644 .vscode/launch.json
+ create mode 100644 archives/js/init.js
+ create mode 100644 index.html
+ create mode 100644 run.js
+ create mode 100644 run0.js
+ create mode 100644 specification
+ create mode 100644 src/css/style.css
+ create mode 100644 src/js/ComponentManager.js
+ create mode 100644 src/js/app.js
+ create mode 100644 src/js/init.js
+ create mode 100644 src/tmplt/add_time_form.html
+ create mode 100644 src/tmplt/js/ab.js
+ create mode 100644 src/tmplt/main.html
+ create mode 100644 src/tmplt/next_month_timer.html
+ create mode 100644 src/tmplt/view.html
+~/.../forestwizard/timer $ git log
+commit ce6766bdb05894b5ca98002868cfb55b18cbcba2 (HEAD -> master)
+Author: Buendia <kenneth.buendia.code@gmail.com>
+Date:   Mon Jul 17 21:17:52 2023 +0900
+
+    first commit
+~/.../forestwizard/timer $ git branch
+* master
+~/.../forestwizard/timer $ 
