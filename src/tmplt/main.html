@@ -6,7 +6,7 @@
 </header>
 <main>
     <div></div>
-    <div id="list">登録タイマーの一覧</div>
+    <div id="card_list">登録タイマーの一覧</div>
     <ol id="cards">
         <li onclick="clickBtn()">追加ボタンの開発中 (2023/07/15)</li>
         <li onclick="clickBtn()"></li>
@@ -39,6 +39,8 @@
     next_month_card.display();
     next_month_card.runTimer();
     //next_month_card.runTimer();x
+
+    var date_collection = new DateCollection('card_list', 'datetimes_storage').showCards();
 }());    
 function clickBtn() {
     alert("準備中😪💤💤");
@@ -70,8 +72,9 @@ function addDateCard(e) {
     let title = document.DateTimeForm['title'].value;
     let date = document.DateTimeForm['date'].value;
     let time = document.DateTimeForm['time'].value;
-    //let date_card = new DateCard(date, time, title);
-    //date_collection.register(date_card);
+
+    let date_card = new DateCard(date, time, title);
+    date_collection.register(date_card);
 }
 
 </script>
