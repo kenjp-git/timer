@@ -216,20 +216,22 @@ class DateCard {
         this.date = this.parseFormDate(date);
         this.time = this.parseFormTime(time);
         this.title = title;
-
+        //console.log(this.date);
+        //console.log(this.time);
         this.created_stamp = c_stamp ? 
             c_stamp : new Date().getTime();
         this.future_stamp = f_stamp ? 
             f_stamp : 
             new Date(
                 this.date[0], this.date[1], this.date[2], 
-                this.time[0], this.time[1], this.time[2]
+                this.time[0], this.time[1], 
             ).getTime();
         
         this.card_info = {
             title:this.title, date:this.date, time:this.time,
             future_stamp: this.future_stamp,
             created_stamp: this.created_stamp,
+            view:{},
         };
         this.date_card;
         this.createDateCard();
@@ -294,7 +296,7 @@ class DateCard {
                 }else {
                     //console.log(own.buildFragment(current_elm));
                     new_elm.appendChild(
-                        own.buildFragment(
+                        this.buildFragment(
                             current_elm.innerHTML.trim()
                         )
                     );
@@ -332,17 +334,25 @@ class DateCard {
     }
 
     parseFormDate(date) {
+        //console.log(date);
+        if(Array.isArray(date)) {
+            return date;
+        }
         return date.split('-');
     }
 
     parseFormTime(time) {
+        if(Array.isArray(time)) {
+            return time;
+        }
         return time.split(':');
     }
 
     registerID(fragment) {
-        this.card_info['title'] = fragment.title.value;
-        this.card_info['date'] = fragment.date.value;
-        this.card_info['time'] = fragment.time.value;
+        //console.log(fragment.getElementById('title'));
+        this.card_info.view.title = fragment.getElementById('title');
+        this.card_info.view.date = fragment.getElementById('date');
+        this.card_info.view.time = fragment.getElementById('time');
     }
 
     runTimer() {
@@ -351,9 +361,9 @@ class DateCard {
 
     template() {
         return `
-        <div name="title"</div>
-        <div name="date"></div>
-        <div name="time"></div>
+        <div id="title"></div>
+        <div id="date"></div>
+        <div id="time"></div>
         `;
     }
 }
@@ -362,7 +372,7 @@ class DateCollection {
     constructor(card_container_id, storage_name) {
         this.storage_name = storage_name;
         this.card_container = document.getElementById(card_container_id);
-        this.data = {}; this.collection = [];
+        this.data = new Map(); this.collection = new Array();
         this.readDataFromStorage(storage_name);
         this.setDataToCollection();
     }
@@ -378,25 +388,28 @@ class DateCollection {
     readDataFromStorage(storage_name) {
         let data_str = localStorage.getItem(storage_name);
         this.data = data_str ? 
-            JSON.parse(data_str) : {};
+            JSON.parse(data_str) : new Map();
     }
 
     register(date_card) {
         let card_info = date_card.getDateCardInfo();
+        console.log(card_info);
         let date_infos = this.data[card_info.future_stamp];
-        date_infos = date_infos ? date_infos : {};
-        date_infos.set(
-            card_info.created_stamp, 
+        
+        date_infos = date_infos ? date_infos : new Map();
+        console.log(date_infos);
+        date_infos[card_info.created_stamp] = 
             {
                 date:card_info['date'],
                 time:card_info['time'],
                 title:card_info['title'], 
             }
-        );
-        this.data.set(card_info.future_stamp, data_infos);
+        ;
+        this.data[card_info.future_stamp] = date_infos;
         this.savedDataToStorage();
 
         this.readDataFromStorage(this.storage_name);
+        console.log(this.data);
         this.setDataToCollection();
         //let collection_str = JSON.stringify(this.collection);
         this.showCards();
@@ -434,31 +447,41 @@ class DateCollection {
     setDataToCollection() {
         let data = this.data;
         let collection = this.collection;
-        if(data == null) { 
+        //collection = [];
+        if(data.size == 0) { 
             //collection = [];
             return;
         };
-        let future_stamp_keys = data.keys().sort();
+        console.log(data);
+        let future_stamp_keys = Object.keys(data).sort();
+        console.log(future_stamp_keys);
+        if(future_stamp_keys.length == 0) return;
+        collection = new Array();
         for(let f_stamp in future_stamp_keys) {
-            let created_stamp_keys = data[f_stamp].keys().sort();
+            let future_stamp = future_stamp_keys[f_stamp];
+            let created_stamp_keys = 
+                Object.keys(data[future_stamp]).sort();
             let card;
             for(let c_stamp in created_stamp_keys) {
+                let created_stamp = created_stamp_keys[c_stamp];
                 card = new DateCard(
-                    data[f_stamp][c_stamp].date, 
-                    data[f_stamp][c_stamp].time, 
-                    data[f_stamp][c_stamp].title, 
-                    f_stamp, c_stamp,
-                );
+                    data[future_stamp][created_stamp].date, 
+                    data[future_stamp][created_stamp].time, 
+                    data[future_stamp][created_stamp].title, 
+                    future_stamp, created_stamp,
+                ).getDateCard();
                 collection.push(card);
             }
         }
+        //console.log(collection);
+        this.collection = collection;
     }
 
     showCards() {
         let collection = this.collection;
         let container = this.card_container;
-
-        if(collection == null) return;
+        console.log(collection);
+        if(collection.length == 0) return;
         container.innerHTML = '';
         for(let card in collection) {
             container.appendChild(collection[card]);
