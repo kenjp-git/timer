@@ -212,51 +212,151 @@ class ComponentManager {
 }
 
 class DateCard {
-    constructor(date, time, title) {
-        this.date = date;
-        this.time = time;
+    constructor(date, time, title, f_stamp, c_stamp) {
+        this.date = this.parseFormDate(date);
+        this.time = this.parseFormTime(time);
         this.title = title;
-        this.created_stamp = new Date().getTime();
-        this.future_stamp = new Date(
-            date.getFullYear(),
-            date.getMonth(),
-            date.getDay()
-        );
+
+        this.created_stamp = c_stamp ? 
+            c_stamp : new Date().getTime();
+        this.future_stamp = f_stamp ? 
+            f_stamp : 
+            new Date(
+                this.date[0], this.date[1], this.date[2], 
+                this.time[0], this.time[1], this.time[2]
+            ).getTime();
+        
+        this.card_info = {
+            title:'', date:'', time:'',
+            future_stamp: this.future_stamp,
+            created_stamp: this.created_stamp,
+        };
+        this.date_card;
         this.createDateCard();
     }
 
-    buildFragment() {
+    buildFragment(response, own) {
+        let div = document.createElement('div');
+        div.innerHTML = response;//console.log(div.children);
+        let div_elms = div.childNodes;
+        //console.log(this.source+':');
+        //console.log(div_elms);
 
+        let fragment = document.createDocumentFragment();
+        //let fragment_elms = fragment.children;
+        for(let n=0,len=div_elms.length; n<len; n++){
+            let current_elm = div_elms[n];
+            if(current_elm.nodeValue == '\n') {
+                //console.log(current_elm.nodeValue);
+                continue;
+            }else if(current_elm.nodeType == 3) {
+                let node = document.createTextNode(current_elm.nodeValue.trim());
+                fragment.appendChild(node);
+            }else if(current_elm.nodeType == 1) {
+                let tag = current_elm.tagName;
+                let attrs = current_elm.attributes;
+                
+                let new_elm = document.createElement(tag);
+                //new_elm.attributes = attrs;
+                for(let m=0,len=attrs.length; m<len; m++) {
+                    let node = attrs[m].cloneNode(true);
+                    new_elm.setAttributeNodeNS(node);
+                }
+    
+                if(tag == 'SCRIPT') {
+                    let src = current_elm.getAttribute('src');
+                    if(src == null) {
+                        new_elm.innerHTML = `
+                            try {
+                            //var orig = $;
+                            function $(attr) {
+                                let elms = parent.querySelectorAll('script')[0]
+                                .parentElement
+                                .querySelectorAll(\`[\${attr}]\`);
+                                for(let elm of elms) {
+                                    //elm.prototype = new Element().addMethods();
+                                }
+                                return elms;
+                            }
+                            ${current_elm.innerHTML.trim()}
+                            //$ = orig;
+                            }finally {
+                                document.currentScript.remove();
+                            }
+                            `.trim();
+                    }else if(src != null) {
+                        new_elm.setAttribute('src', src);
+                        new_elm.addEventListener('load', (ev) => {
+                            //console.log(ev);
+                            ev.target.remove();
+                        });
+                    }
+                }else {
+                    //console.log(own.buildFragment(current_elm));
+                    new_elm.appendChild(
+                        own.buildFragment(
+                            current_elm.innerHTML.trim()
+                        )
+                    );
+                }
+                //console.log(elm);
+                if(tag == 'STYLE') {
+                    new_elm.addEventListener('load',(ev)=>{
+                        ev.target.remove();
+                    });
+                }
+                fragment.appendChild(new_elm);
+            }else {
+                continue;
+            }
+        }
+        return fragment;
     }
 
     createDateCard() {
         let card = document.createElement('li');
-        let card_fragment = this.buildFragment();
+        let card_fragment = this.buildFragment(
+            this.template(), this
+        );
         this.registerID(card_fragment);
         card.appendChild(card_fragment);
         this.date_card = card;
     }
 
     getDateCardInfo() {
-        let info = {};
-        info.setItem('title', this.title);
-        info.setItem('date', this.date);
-        info.setItem('time', this.time);
-        return info;
+        return this.card_info;
     }
 
     getDateCard() {
         return this.date_card;
     }
 
+    parseFormDate(date) {
+        let date = date.split('-');
+        return date;
+    }
+
+    parseFormTime(time) {
+        let time = time.split(':');
+        return time;
+    }
+
     registerID(fragment) {
-        this.card_title = fragment.title;
-        this.card_date = fragment.date;
-        this.card_time = fragment.time;
+        this.card_info['title'] = fragment.title.value;
+        this.card_info['date'] = fragment.date.value;
+        this.card_info['time'] = fragment.time.value;
     }
 
     runTimer() {
         new Timer().run();
+    }
+
+    template() {
+        return `
+        <div name="title"</div>
+        <div name="date"></div>
+        <div name="time"></div>
+        `;
     }
 }
 
@@ -287,7 +387,15 @@ class DateCollection {
         let card_info = date_card.getDateCardInfo();
         let date_infos = this.data[card_info.future_stamp];
         date_infos = date_infos ? date_infos : {};
-        date_infos[card_info.created_stamp] = card_info.info;
+        date_infos.set(
+            card_info.created_stamp, 
+            {
+                date:card_info['date'],
+                time:card_info['time'],
+                title:card_info['title'], 
+            }
+        );
+        this.data.set(card_info.future_stamp, data_infos);
         this.savedDataToStorage();
 
         this.readDataFromStorage(this.storage_name);
@@ -338,7 +446,10 @@ class DateCollection {
             let card;
             for(let c_stamp in created_stamp_keys) {
                 card = new DateCard(
-                    c_stamp.date, c_stamp.time, c_stamp.title
+                    data[f_stamp][c_stamp].date, 
+                    data[f_stamp][c_stamp].time, 
+                    data[f_stamp][c_stamp].title, 
+                    f_stamp, c_stamp,
                 );
                 collection.push(card);
             }
