@@ -805,7 +805,7 @@ class MainCssSet {
             z-index:50;
             background-color:#fff;
             opacity:0;
-            transition: opacity 0.5s;
+            transition: opacity 0.3s;
         `;
     }
 
@@ -819,7 +819,7 @@ class MainCssSet {
             /*z-index:100;*/
             background-color:#000;
             opacity:0;
-            transition: opacity 0.5s;
+            transition: opacity 0.3s;
         `;
     }
 
