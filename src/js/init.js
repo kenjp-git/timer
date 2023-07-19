@@ -216,12 +216,12 @@ class DateCard {
         this.date = date;
         this.time = time;
         this.title = title;
-        this.timestamp = new Date(
+        this.created_stamp = new Date().getTime();
+        this.future_stamp = new Date(
             date.getFullYear(),
             date.getMonth(),
-            date
+            date.getDay()
         );
-
         this.createDateCard();
     }
 
@@ -264,17 +264,49 @@ class DateCollection {
     constructor(card_container_id, storage_name) {
         this.storage_name = storage_name;
         this.card_container = document.getElementById(card_container_id);
-        this.collection = []; 
-        this.getStorageDateInfo(storage_name);
+        this.data = {}; this.collection = [];
+        this.readDataFromStorage(storage_name);
+        this.setDataToCollection();
     }
 
-    change() {
+    deleteCard() {
 
     }
 
-    delete() {
+    editCard() {
 
     }
+
+    readDataFromStorage(storage_name) {
+        let data_str = localStorage.getItem(storage_name);
+        this.data = data_str ? 
+            JSON.parse(data_str) : {};
+    }
+
+    register(date_card) {
+        let card_info = date_card.getDateCardInfo();
+        let date_infos = this.data[card_info.future_stamp];
+        date_infos = date_infos ? date_infos : {};
+        date_infos[card_info.created_stamp] = card_info.info;
+        this.savedDataToStorage();
+
+        this.readDataFromStorage(this.storage_name);
+        this.setDataToCollection();
+        //let collection_str = JSON.stringify(this.collection);
+        this.showCards();
+    }
+
+    /*renewCollection() {
+        //let collection = this.getDateCollection(this.name);
+        this.collection.add();
+        localStorage.setItem(this.storage_name, JSON.stringify(this.collection));
+    }*/
+
+    savedDataToStorage() {
+        let data_str = JSON.stringify(this.data);
+        localStorage.setItem(this.storage_name, data_str);
+    }
+
     /** @idea
     datas = {
         'kigen_timestamp':{
@@ -293,25 +325,24 @@ class DateCollection {
     }
     */
 
-    getStorageDateInfo(storage_name) {
-        let collection_str = localStorage.getItem(storage_name);
-        if(collection_str != null) {
-            return JSON.parse(collection_str);
-        }else {
-            return undefined;
+    setDataToCollection() {
+        let data = this.data;
+        let collection = this.collection;
+        let future_stamp_keys = data.keys().sort();
+        if(future_stamp_keys == null) { 
+            collection = [];
+            return;
+        };
+        for(let f_stamp in future_stamp_keys) {
+            let created_stamp_keys = data[f_stamp].keys().sort();
+            let card;
+            for(let c_stamp in created_stamp_keys) {
+                card = new DateCard(
+                    c_stamp.date, c_stamp.time, c_stamp.title
+                );
+                collection.push(card);
+            }
         }
-    }
-
-    register(date_card) {
-        let card_info = date_card.getDateCardInfo();
-        this.collection[num] = data_card;
-        this.showCards();
-    }
-
-    renewCollection() {
-        //let collection = this.getDateCollection(this.name);
-        this.collection.add();
-        localStorage.setItem(this.storage_name, JSON.stringify(this.collection));
     }
 
     showCards() {
