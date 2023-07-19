@@ -227,7 +227,7 @@ class DateCard {
             ).getTime();
         
         this.card_info = {
-            title:'', date:'', time:'',
+            title:this.title, date:this.date, time:this.time,
             future_stamp: this.future_stamp,
             created_stamp: this.created_stamp,
         };
@@ -436,11 +436,11 @@ class DateCollection {
     setDataToCollection() {
         let data = this.data;
         let collection = this.collection;
-        let future_stamp_keys = data.keys().sort();
-        if(future_stamp_keys == null) { 
+        if(data == null) { 
             collection = [];
             return;
         };
+        let future_stamp_keys = data.keys().sort();
         for(let f_stamp in future_stamp_keys) {
             let created_stamp_keys = data[f_stamp].keys().sort();
             let card;
