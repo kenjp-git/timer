@@ -332,13 +332,11 @@ class DateCard {
     }
 
     parseFormDate(date) {
-        let date = date.split('-');
-        return date;
+        return date.split('-');
     }
 
     parseFormTime(time) {
-        let time = time.split(':');
-        return time;
+        return time.split(':');
     }
 
     registerID(fragment) {
@@ -437,7 +435,7 @@ class DateCollection {
         let data = this.data;
         let collection = this.collection;
         if(data == null) { 
-            collection = [];
+            //collection = [];
             return;
         };
         let future_stamp_keys = data.keys().sort();
@@ -459,6 +457,8 @@ class DateCollection {
     showCards() {
         let collection = this.collection;
         let container = this.card_container;
+
+        if(collection == null) return;
         container.innerHTML = '';
         for(let card in collection) {
             container.appendChild(collection[card]);
