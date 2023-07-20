@@ -315,6 +315,15 @@ class DateCard {
         return fragment;
     }
 
+    changeTimeView(result) {
+        //console.log(result['seconds']);
+        this.card_info.view['weeks'].innerHTML = `  ${result['weeks']} `;
+        this.card_info.view['wkdays'].innerHTML = `  ${result['wkdays']} `;
+        this.card_info.view['hours'].innerHTML = `  ${result['hours']} `;
+        this.card_info.view['minutes'].innerHTML = `  ${result['minutes']} `;
+        this.card_info.view['seconds'].innerHTML = `  ${result['seconds']} `;
+    }
+
     createDateCard() {
         let card = document.createElement('li');
         let card_fragment = this.buildFragment(
@@ -367,8 +376,8 @@ class DateCard {
         console.log(this);
     }
 
-    runTimer() {
-        new Timer().run();
+    runTimer(future) {
+        new Timer(future).run(this);
     }
 
     template() {
@@ -435,6 +444,10 @@ class DateCollection {
         localStorage.setItem(this.storage_name, JSON.stringify(this.collection));
     }*/
 
+    runCardsTimer() {
+        let data = this.data;
+    }
+
     savedDataToStorage() {
         let data_str = JSON.stringify(this.data);
         localStorage.setItem(this.storage_name, data_str);
@@ -483,8 +496,17 @@ class DateCollection {
                     data[future_stamp][created_stamp].time, 
                     data[future_stamp][created_stamp].title, 
                     future_stamp, created_stamp,
-                ).getDateCard();
-                collection.push(card);
+                );
+                //console.log(new Date().setMilliseconds(parseInt(future_stamp)));
+                let date = new Date(
+                    card.card_info.date[0], 
+                    card.card_info.date[1], 
+                    card.card_info.date[2], 
+                    card.card_info.time[0], 
+                    card.card_info.time[1],
+                );
+                card.runTimer(date);
+                collection.push(card.getDateCard());
             }
         }
         //console.log(collection);
@@ -712,7 +734,7 @@ class TimeCard {
                 if(xhr.status == 200) {
                     let tmplt = xhr.response;
                     //tmplt = own.render(tmplt, own.vals);
-                    console.log(tmplt);
+                    //console.log(tmplt);
                     let fragment = own.buildFragment(tmplt, own);
                     //console.log(fragment);
                     own.registerID(fragment, own);
