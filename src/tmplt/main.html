@@ -60,8 +60,9 @@ function viewForm() {
         <input type="button" value="register" onclick="addDateCard()">
     </form>
     `;
-    new Dialog(content).show();
-    //console.log('addBtn');
+    form_dialog = new Dialog(content);
+    form_dialog.show();
+    console.log(form_dialog);
 }
 
 function addDateCard(e) {
@@ -74,10 +75,13 @@ function addDateCard(e) {
 
     let date_card = new DateCard(date, time, title);//.createDateCard();
     date_collection.register(date_card);
+    form_dialog.close();
 }
+
 var date_collection = new DateCollection('cards', 'datetime_storage');
 console.log(date_collection);
 date_collection.showCards();
+var form_dialog;
 </script>
 
 <script>
