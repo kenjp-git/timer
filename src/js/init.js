@@ -351,14 +351,29 @@ class DateCard {
 
     parseFormDate(date) {
         //console.log(date);
-        if(Array.isArray(date)) {
+        if(date == '') {
+            let date = new Date();
+            let default_date = [
+                date.getFullYear(),
+                date.getMonth(),
+                date.getDate()
+            ];
+            return default_date;
+        }else if(Array.isArray(date)) {
             return date;
         }
         return date.split('-');
     }
 
     parseFormTime(time) {
-        if(Array.isArray(time)) {
+        if(time == '') {
+            let date = new Date();
+            let default_time = [
+                date.getHours(), 
+                date.getMinutes() + 1
+            ];
+            return default_time;
+        }else if(Array.isArray(time)) {
             return time;
         }
         return time.split(':');
