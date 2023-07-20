@@ -329,15 +329,17 @@ class DateCard {
         let card_fragment = this.buildFragment(
             this.template(), this
         );
-        /*console.log(
-            card_fragment
-            .querySelectorAll('*[id]')
-            .forEach((value, key) => {
-                console.log(value.getAttribute('id'));
-            })
-        );*/
+        let title = document.createElement('p');
+        title.textContent = this.card_info.title;
+        card.appendChild(title);
         this.registerID(card_fragment);
         card.appendChild(card_fragment);
+        let delete_btn = document.createElement('p');
+        delete_btn.textContent = '×';
+        delete_btn.onclick = (e) => {
+            e.target.parentNode.remove();
+        };
+        card.appendChild(delete_btn);
         this.date_card = card;
     }
 
