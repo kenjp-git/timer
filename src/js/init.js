@@ -341,6 +341,10 @@ class DateCard {
         this.date_card = card;
     }
 
+    finish() {
+
+    }
+
     getDateCardInfo() {
         return this.card_info;
     }
@@ -362,7 +366,9 @@ class DateCard {
         }else if(Array.isArray(date)) {
             return date;
         }
-        return date.split('-');
+        let date_ary = date.split('-');
+        date_ary[1] -= 1;
+        return date_ary;
     }
 
     parseFormTime(time) {
@@ -763,6 +769,10 @@ class TimeCard {
         xhr.send(null);
     }
 
+    finish() {
+        window.location.reload();
+    }
+
     registerID(fragment, own) {
         own.weeks = fragment.querySelector('#weeks');
         own.wkdays = fragment.querySelector('#wkdays');
@@ -831,13 +841,16 @@ class Timer {
     timer(own) {
         //console.log(own);
         own.diff = own.future_millisec - own.now_millisec;
-        if(own.diff > 999) {
+        if(own.diff > 10) {
             own.changeTime();
             own.now_millisec += 1000;
         }else {
             //console.log(own.timer_id)
             //window.clearInterval(own.timer_id)
-            window.location.reload();
+            own.time_card.finish();
+            console.log('finish:'+own.timer_id);
+            clearInterval(own.timer_id);
+            //window.location.reload();
             //window.setTimeout(window.location.reload, own.diff);
         }
     }
