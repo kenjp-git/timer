@@ -320,6 +320,13 @@ class DateCard {
         let card_fragment = this.buildFragment(
             this.template(), this
         );
+        /*console.log(
+            card_fragment
+            .querySelectorAll('*[id]')
+            .forEach((value, key) => {
+                console.log(value.getAttribute('id'));
+            })
+        );*/
         this.registerID(card_fragment);
         card.appendChild(card_fragment);
         this.date_card = card;
@@ -349,10 +356,15 @@ class DateCard {
     }
 
     registerID(fragment) {
-        //console.log(fragment.getElementById('title'));
-        this.card_info.view.title = fragment.getElementById('title');
-        this.card_info.view.date = fragment.getElementById('date');
-        this.card_info.view.time = fragment.getElementById('time');
+        let elms = fragment.querySelectorAll('*[id]');
+        //let ids = new Array();
+        elms.forEach((val, key) => {
+            let id = val.getAttribute('id');
+            this.card_info.view[id] = val;
+            //console.log(val);
+            //ids.push(val.getAttribute('id'));
+        });
+        console.log(this);
     }
 
     runTimer() {
@@ -361,9 +373,11 @@ class DateCard {
 
     template() {
         return `
-        <div id="title"></div>
-        <div id="date"></div>
-        <div id="time"></div>
+        <span id="weeks"> 00 </span> 週
+        <span id="wkdays"> 00 </span> 日 
+        <span id="hours"> 00 </span> 時間 
+        <span id="minutes"> 00 </span> 分 
+        <span id="seconds"> 00 </span> 秒 
         `;
     }
 }
