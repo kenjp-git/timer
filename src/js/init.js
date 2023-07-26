@@ -376,8 +376,10 @@ class DateCard {
     static delete(e) {
         console.log('deleting');
         let elm = DateCollection.selected_card;
-        DateCollection.date_collection.deleteCard(elm)
-        
+        let ans = DateCollection.date_collection.deleteCard(elm)
+        if(ans) {
+            DateCard.confirm.close();
+        }
         //console.log(DateCollection.date_collection);
         //console.log(e.target.parentElement.created_stamp);
 
@@ -485,7 +487,8 @@ class DateCollection {
         this.readDataFromStorage(this.storage_name);
         this.setDataToCollection();
         elm.parentElement.removeChild(elm);
-        DateCard.confirm.close();
+        return true;
+        //DateCard.confirm.close();
     }
 
     editCard() {
