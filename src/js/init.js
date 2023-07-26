@@ -336,18 +336,51 @@ class DateCard {
         card.appendChild(title);
         this.registerID(card_fragment);
         card.appendChild(card_fragment);
+        card.future_stamp = this.future_stamp;
         card.created_stamp = this.created_stamp;
 
         let delete_btn = document.createElement('p');
         delete_btn.textContent = '×';
-        delete_btn.onclick = this.deleteCard;
+        delete_btn.onclick = this.confirmDeletion;
         card.appendChild(delete_btn);
         this.date_card = card;
     }
 
-    deleteCard(e) {
-        console.log(DateCollection.date_collection);
-        console.log(e.target.parentElement.created_stamp);
+    confirmDeletion(e) {
+        DateCollection.selected_card = e.target.parentElement;
+        let content = document.createElement('div');
+        let question = document.createElement('p');
+        question.innerHTML = `
+        <p>Are you sure you wanna delete this card?</p>
+        `;
+        let yes = document.createElement('span');
+        yes.innerText = 'yes';
+        yes.onclick = DateCard.delete;
+        let space = document.createElement('span');
+        space.innerText = '     ';
+        let no = document.createElement('span');
+        no.innerText = 'no';
+        no.onclick = () => {
+            DateCollection.selected_card = undefined;
+            DateCard.confirm.close();
+        };
+        content.appendChild(question);
+        content.appendChild(yes);
+        content.appendChild(space);
+        content.appendChild(no);
+
+        DateCard.confirm = new Dialog(content);
+        DateCard.confirm.show();
+    }
+
+    static delete(e) {
+        console.log('deleting');
+        let elm = DateCollection.selected_card;
+        DateCollection.date_collection.deleteCard(elm)
+        
+        //console.log(DateCollection.date_collection);
+        //console.log(e.target.parentElement.created_stamp);
+
     }
 
     finish() {
@@ -423,6 +456,7 @@ class DateCard {
 
 class DateCollection {
     static date_collection;
+    static selected_card;
     
     constructor(card_container_id, storage_name) {
         this.storage_name = storage_name;
@@ -432,8 +466,26 @@ class DateCollection {
         this.setDataToCollection();
     }
 
-    deleteCard() {
-
+    deleteCard(elm) {
+        let f_stamp = elm.future_stamp;
+        let c_stamp = elm.created_stamp;
+        let data = this.data;
+        console.log(data[f_stamp]);
+        delete data[f_stamp][c_stamp];
+        //data[f_stamp].delete(c_stamp);
+        console.log(data[f_stamp]);
+        if(data[f_stamp].length == undefined) {
+            delete data[f_stamp];
+            /*if(data.length == undefined) {
+                delete data;
+            }*/
+        }
+        console.log(data[f_stamp]);
+        this.savedDataToStorage();
+        this.readDataFromStorage(this.storage_name);
+        this.setDataToCollection();
+        elm.parentElement.removeChild(elm);
+        DateCard.confirm.close();
     }
 
     editCard() {
@@ -475,6 +527,12 @@ class DateCollection {
         
         date_infos = date_infos ? date_infos : new Map();
         console.log(date_infos);
+        /*let created_infos = new Map();
+        created_infos.set('date', card_info['date']);
+        created_infos.set('time', card_info['time']);
+        created_infos.set('title', card_info['title']);
+        console.log(created_infos);
+        */
         date_infos[card_info.created_stamp] = 
             {
                 date:card_info['date'],
