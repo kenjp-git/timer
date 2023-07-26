@@ -218,6 +218,7 @@ class DateCard {
         this.title = title;
         //console.log(this.date);
         //console.log(this.time);
+        if(date != '') this.time = [0, 0];
         this.created_stamp = c_stamp ? 
             c_stamp : new Date().getTime();
         this.future_stamp = f_stamp ? 
@@ -357,10 +358,6 @@ class DateCard {
         return this.card_info;
     }
 
-    getDateCard() {
-        return this.date_card;
-    }
-
     parseFormDate(date) {
         //console.log(date);
         if(date == '') {
@@ -418,6 +415,10 @@ class DateCard {
         <span id="seconds"> 00 </span> 秒 
         `;
     }
+
+    toElement() {
+        return this.date_card;
+    }
 }
 
 class DateCollection {
@@ -440,7 +441,25 @@ class DateCollection {
     }
 
     indexOfCard(future_stamp, created_stamp) {
+        let collection = this.collection;
+        let card;
+        for(let idx in collection) {
+            card = collection[idx];
+            if(
+                card.future_stamp == future_stamp &&
+                card.created_stamp == created_stamp
+            ) {
+                return idx;
+            }
+            continue;
+        }
+    }
 
+    insert(new_card, idx) {
+        let container = this.card_container
+        let old_card = container.children[idx];
+        //console.log(container);
+        container.insertBefore(new_card, old_card);
     }
 
     readDataFromStorage(storage_name) {
@@ -469,8 +488,23 @@ class DateCollection {
         this.readDataFromStorage(this.storage_name);
         console.log(this.data);
         this.setDataToCollection();
+
+        let idx = this.indexOfCard(
+            card_info.future_stamp, card_info.created_stamp
+        );
+        console.log(idx)
+        this.insert(date_card.toElement(), idx);
+
+        let datetime = new Date(
+            card_info.date[0], 
+            card_info.date[1], 
+            card_info.date[2], 
+            card_info.time[0], 
+            card_info.time[1], 
+        );
+        date_card.runTimer(datetime);
         //let collection_str = JSON.stringify(this.collection);
-        this.showCards();
+        //this.showCards();
     }
 
     /*renewCollection() {
@@ -511,7 +545,7 @@ class DateCollection {
         if(data.size == 0) { 
             return;
         };
-        let collection = this.collection;
+        let collection = new Array();
         let future_stamp_keys = Object.keys(data).sort();
         console.log(future_stamp_keys);
         for(let f_idx in future_stamp_keys) {
@@ -556,7 +590,7 @@ class DateCollection {
         let card;
         for(let idx in collection) {
             card = collection[idx];
-            container.appendChild(card.getDateCard());
+            container.appendChild(card.toElement());
             card.runTimer(card.datetime);
         }
     }
@@ -864,7 +898,7 @@ class Timer {
             //console.log(own.timer_id)
             //window.clearInterval(own.timer_id)
             own.time_card.finish();
-            console.log('finish:'+own.timer_id);
+            //console.log('finish:'+own.timer_id);
             clearInterval(own.timer_id);
             //window.location.reload();
             //window.setTimeout(window.location.reload, own.diff);
