@@ -74,13 +74,13 @@ function addDateCard(e) {
     let time = document.DateTimeForm['time'].value;
 
     let date_card = new DateCard(date, time, title);//.createDateCard();
-    date_collection.register(date_card);
+    DateCollection.date_collection.register(date_card);
     form_dialog.close();
 }
 
-var date_collection = new DateCollection('cards', 'datetime_storage');
-console.log(date_collection);
-date_collection.showCards();
+DateCollection.date_collection = new DateCollection('cards', 'datetime_storage');
+//console.log(DateCollection.date_collection);
+DateCollection.date_collection.showCards();
 //date_collection.runCardsTimer();
 var form_dialog;
 </script>

@@ -233,6 +233,7 @@ class DateCard {
             created_stamp: this.created_stamp,
             view:{},
         };
+        //this.stamp = this.future_stamp + this.created_stamp;
         this.date_card;
         this.createDateCard();
     }
@@ -334,13 +335,18 @@ class DateCard {
         card.appendChild(title);
         this.registerID(card_fragment);
         card.appendChild(card_fragment);
+        card.created_stamp = this.created_stamp;
+
         let delete_btn = document.createElement('p');
         delete_btn.textContent = '×';
-        delete_btn.onclick = (e) => {
-            e.target.parentNode.remove();
-        };
+        delete_btn.onclick = this.deleteCard;
         card.appendChild(delete_btn);
         this.date_card = card;
+    }
+
+    deleteCard(e) {
+        console.log(DateCollection.date_collection);
+        console.log(e.target.parentElement.created_stamp);
     }
 
     finish() {
@@ -396,7 +402,7 @@ class DateCard {
             //console.log(val);
             //ids.push(val.getAttribute('id'));
         });
-        console.log(this);
+        //console.log(this);
     }
 
     runTimer(future) {
@@ -415,6 +421,8 @@ class DateCard {
 }
 
 class DateCollection {
+    static date_collection;
+    
     constructor(card_container_id, storage_name) {
         this.storage_name = storage_name;
         this.card_container = document.getElementById(card_container_id);
@@ -428,6 +436,10 @@ class DateCollection {
     }
 
     editCard() {
+
+    }
+
+    indexOfCard(future_stamp, created_stamp) {
 
     }
 
@@ -496,24 +508,19 @@ class DateCollection {
 
     setDataToCollection() {
         let data = this.data;
-        let collection = this.collection;
-        //collection = [];
         if(data.size == 0) { 
-            //collection = [];
             return;
         };
-        console.log(data);
+        let collection = this.collection;
         let future_stamp_keys = Object.keys(data).sort();
         console.log(future_stamp_keys);
-        if(future_stamp_keys.length == 0) return;
-        collection = new Array();
-        for(let f_stamp in future_stamp_keys) {
-            let future_stamp = future_stamp_keys[f_stamp];
+        for(let f_idx in future_stamp_keys) {
+            let future_stamp = future_stamp_keys[f_idx];
             let created_stamp_keys = 
                 Object.keys(data[future_stamp]).sort();
-            let card;
-            for(let c_stamp in created_stamp_keys) {
-                let created_stamp = created_stamp_keys[c_stamp];
+            let card; let datetime;
+            for(let c_idx in created_stamp_keys) {
+                let created_stamp = created_stamp_keys[c_idx];
                 card = new DateCard(
                     data[future_stamp][created_stamp].date, 
                     data[future_stamp][created_stamp].time, 
@@ -521,15 +528,19 @@ class DateCollection {
                     future_stamp, created_stamp,
                 );
                 //console.log(new Date().setMilliseconds(parseInt(future_stamp)));
-                let date = new Date(
+                datetime = new Date(
                     card.card_info.date[0], 
                     card.card_info.date[1], 
                     card.card_info.date[2], 
                     card.card_info.time[0], 
                     card.card_info.time[1],
                 );
-                card.runTimer(date);
+                card.datetime = datetime;
+                collection.push(card);
+                    /*
+                    card.runTimer(date);
                 collection.push(card.getDateCard());
+                */
             }
         }
         //console.log(collection);
@@ -542,8 +553,11 @@ class DateCollection {
         console.log(collection);
         if(collection.length == 0) return;
         container.innerHTML = '';
-        for(let card in collection) {
-            container.appendChild(collection[card]);
+        let card;
+        for(let idx in collection) {
+            card = collection[idx];
+            container.appendChild(card.getDateCard());
+            card.runTimer(card.datetime);
         }
     }
 }
