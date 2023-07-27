@@ -333,7 +333,9 @@ class DateCard {
             this.template(), this
         );
         let title = document.createElement('p');
-        title.textContent = this.card_info.title;
+        title.textContent = 
+            this.card_info.title ? this.card_info.title : 
+            this.defaultTitle();
         card.appendChild(title);
         this.registerID(card_fragment);
         card.appendChild(card_fragment);
@@ -387,12 +389,12 @@ class DateCard {
     }
 
     finish() {
-        //let target = this.toElement();
+        let target = this.toElement();
         let parent = DateCollection.date_collection.card_container;
-        //console.log(target);
-        //target.style.cssText = '{background: skyblue}';
-        //let old_child = parent.removeChild(target);
-        //parent.appendChild(old_child);
+        console.log(target);
+        let old_child = parent.removeChild(target);
+        parent.appendChild(old_child);
+        old_child.style.cssText = 'background: lightgray;';
         //DateCollection.date_collection.deleteCard(this.toElement());
     }
 
