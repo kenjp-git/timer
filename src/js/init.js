@@ -218,7 +218,7 @@ class DateCard {
         this.title = title;
         //console.log(this.date);
         //console.log(this.time);
-        if(date != '') this.time = [0, 0];
+        if(date != '' && time == '') {this.time = [0, 0];}
         this.created_stamp = c_stamp ? 
             c_stamp : new Date().getTime();
         this.future_stamp = f_stamp ? 
@@ -236,6 +236,7 @@ class DateCard {
         };
         //this.stamp = this.future_stamp + this.created_stamp;
         this.date_card;
+        this.datetime;
         this.createDateCard();
     }
 
@@ -386,8 +387,13 @@ class DateCard {
     }
 
     finish() {
-        DateCollection
-        .date_collection.deleteCard(this.toElement());
+        //let target = this.toElement();
+        let parent = DateCollection.date_collection.card_container;
+        //console.log(target);
+        //target.style.cssText = '{background: skyblue}';
+        //let old_child = parent.removeChild(target);
+        //parent.appendChild(old_child);
+        //DateCollection.date_collection.deleteCard(this.toElement());
     }
 
     getDateCardInfo() {
@@ -405,6 +411,7 @@ class DateCard {
             ];
             return default_date;
         }else if(Array.isArray(date)) {
+            //when given from storage
             return date;
         }
         let date_ary = date.split('-');
@@ -440,6 +447,8 @@ class DateCard {
 
     runTimer(future) {
         new Timer(future).run(this);
+        console.log('timer is running');
+        console.log(future);
     }
 
     template() {
@@ -489,7 +498,9 @@ class DateCollection {
         this.savedDataToStorage();
         this.readDataFromStorage(this.storage_name);
         this.setDataToCollection();
-        elm.parentElement.removeChild(elm);
+        //if(elm.parentElement[elm]) {
+            elm.parentElement.removeChild(elm);
+        //}
         return true;
         //DateCard.confirm.close();
     }
@@ -655,10 +666,17 @@ class DateCollection {
         console.log(collection);
         if(collection.length == 0) return;
         container.innerHTML = '';
-        let card;
+        let card; let datetime;
         for(let idx in collection) {
             card = collection[idx];
             container.appendChild(card.toElement());
+            /*datetime = new Date(
+                card.card_info.date[0], 
+                card.card_info.date[1], 
+                card.card_info.date[2], 
+                card.card_info.time[0], 
+                card.card_info.time[1],
+            );*/
             card.runTimer(card.datetime);
         }
     }
