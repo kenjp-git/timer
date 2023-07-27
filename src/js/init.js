@@ -1052,7 +1052,7 @@ class MainCssSet {
         return `
         margin: 10px auto;
         color:green;
-        font: 2em bold;
+        font: 150% bold;
         `;
     }
 
@@ -1073,7 +1073,7 @@ class MainCssSet {
         padding: 1px 10px;
         position:relative;
         border-radius: 10%;
-        left: 35%;
+        left: 45%;
         border: 1px solid #007eff;
         background: #fff;
         color: #000;
@@ -1088,7 +1088,7 @@ class MainCssSet {
         border-radius:10%;
         border:1px solid #007eff;
         background:#fff;
-        right: 35%;
+        right: 45%;
         color: #000;
         `;
     }
