@@ -386,7 +386,8 @@ class DateCard {
     }
 
     finish() {
-
+        DateCollection
+        .date_collection.deleteCard(this.toElement());
     }
 
     getDateCardInfo() {
@@ -475,14 +476,16 @@ class DateCollection {
         console.log(data[f_stamp]);
         delete data[f_stamp][c_stamp];
         //data[f_stamp].delete(c_stamp);
-        console.log(data[f_stamp]);
-        if(data[f_stamp].length == undefined) {
+        //console.log(data[f_stamp][c_stamp]);
+        //console.log(Object.keys(data[f_stamp]).length);
+        if(Object.keys(data[f_stamp]).length == 0) {
+            //data[f_stamp] = '';
             delete data[f_stamp];
             /*if(data.length == undefined) {
                 delete data;
             }*/
         }
-        console.log(data[f_stamp]);
+        //console.log(data[f_stamp].values);
         this.savedDataToStorage();
         this.readDataFromStorage(this.storage_name);
         this.setDataToCollection();
@@ -958,9 +961,9 @@ class Timer {
         }else {
             //console.log(own.timer_id)
             //window.clearInterval(own.timer_id)
-            own.time_card.finish();
             //console.log('finish:'+own.timer_id);
             clearInterval(own.timer_id);
+            own.time_card.finish();
             //window.location.reload();
             //window.setTimeout(window.location.reload, own.diff);
         }
