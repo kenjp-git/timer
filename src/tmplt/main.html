@@ -49,15 +49,18 @@ function viewForm() {
     let content = document.createElement('div');
     content.style.cssText = new MainCssSet().form();
     content.innerHTML = `
-    <p>Hello Dialog</p>
-    <form name="DateTimeForm">
-        title
-        <input type="text" name="title">
-        date
+    <h3>タイマーを登録します</h3>
+	<h6>(オフライン保存)</h6>
+    <br>
+    <form name="DateTimeForm" style="color:gray;">
+        <h5>タイトルを入力：
+        <input type="text" name="title" placeholder="すべて省略可能">
+        年月日を入力：
         <input type="date" name="date">
-        time
+        時刻を入力：
         <input type="time" name="time">
-        <input type="button" value="register" onclick="addDateCard()">
+        </h5>
+        <input type="button" value="登録" onclick="addDateCard()" style="cursor:pointer;">
     </form>
     `;
     form_dialog = new Dialog(content);

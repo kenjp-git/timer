@@ -335,12 +335,16 @@ class DateCard {
             this.card_info.title ? this.card_info.title : 
             this.defaultTitle();
         title.style.cssText = new MainCssSet().title();
+        title.classList.add('noscrollbar');
         card.appendChild(title);
 
         let subtitle = document.createElement('p');
         subtitle.innerText = this.viewDateTime();
         subtitle.style.cssText = new MainCssSet().subtitle();
         card.appendChild(subtitle);
+        
+        let border_line = document.createElement('hr');
+        //card.appendChild(border_line);
 
         let datetime = document.createElement('p');
         let date_fragment = this.buildFragment(
@@ -350,11 +354,12 @@ class DateCard {
         datetime.style.cssText = new MainCssSet().datetime();
         datetime.appendChild(date_fragment);
         card.appendChild(datetime);
+        
         card.future_stamp = this.future_stamp;
         card.created_stamp = this.created_stamp;
 
         let delete_btn = document.createElement('p');
-        delete_btn.textContent = 'sakujo';
+        delete_btn.textContent = '削除する';
         delete_btn.style.cssText = new MainCssSet().delete_btn();
         delete_btn.onclick = this.confirmDeletion;
         card.appendChild(delete_btn);
@@ -367,11 +372,11 @@ class DateCard {
         let question = document.createElement('p');
         question.style.cssText = "margin:10px";
         question.innerHTML = `
-        <p>Are you sure you wanna delete this card?</p>
+        <p>本当に削除しますか？</p>
         `;
         
-        let yes = document.createElement('span');
-        yes.innerText = 'yes';
+        let yes = document.createElement('p');
+        yes.innerText = 'はい';
         yes.style.cssText = new MainCssSet().delete_yes();
         yes.onclick = () => {
             yes.style.background = '#007eff';
@@ -383,8 +388,8 @@ class DateCard {
         let space = document.createElement('span');
         space.innerText = '     ';
         
-        let no = document.createElement('span');
-        no.innerText = 'no';
+        let no = document.createElement('p');
+        no.innerText = 'いいえ';
         no.style.cssText =  new MainCssSet().delete_no();
         no.onclick = () => {
             no.style.background = "#007eff";
@@ -404,7 +409,7 @@ class DateCard {
     }
 
     defaultTitle() {
-        let title = "Title";
+        let title = "タイトル";
         return title;
     }
 
@@ -511,7 +516,7 @@ class DateCard {
         }else {
             min = this.time[1];
         }
-        let datetime = `${this.date[0]}nen ${this.date[1]+1}gatsu ${this.date[2]}nichi ${hour}:${min}`;
+        let datetime = `${this.date[0]} 年 ${this.date[1]+1} 月 ${this.date[2]} 日 ${hour}:${min}`;
         return datetime;
     }
 }
@@ -1058,38 +1063,47 @@ class MainCssSet {
 
     delete_btn() {
         return `
+        display:inline;
+        margin: auto 5px;
         position: relative;
-        left: 50%; bottom:0px;
+        bottom:-5%;
         transform-origin: 50% 50%;
         transform:translate(-50%, -50%);
-        color:red;
-        font:bold;
+        color:#da6161;
+        font-weight:bold;
+        cursor:pointer;
         `;
     }
 
     delete_yes() {
         return `
-        margin: 15px;
+        display:inline;
+        margin: 0px;
         padding: 1px 10px;
         position:relative;
-        border-radius: 10%;
-        left: 45%;
+        border-radius: 5%;
+        left: 50%;
         border: 1px solid #007eff;
         background: #fff;
         color: #000;
+        font:0.5em;
+        cursor:pointer;
         `;
     }
 
     delete_no() {
         return `
-        margin: 15px;
+        display:inline;
+        margin: 0px;
         padding: 1px 10px;
         position:relative;
-        border-radius:10%;
+        border-radius:5%;
         border:1px solid #007eff;
         background:#fff;
-        right: 45%;
+        right: 50%;
         color: #000;
+        font:0.5em;
+        cursor:pointer;
         `;
     }
 
@@ -1141,7 +1155,7 @@ class MainCssSet {
 
     title() {
         return `
-        margin: auto 20px;
+        margin: 10px 20px;
         height: 25%;
         font:2em bold;
         color: #007eff;
