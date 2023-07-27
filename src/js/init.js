@@ -614,6 +614,10 @@ class DateCollection {
         console.log(future_stamp_keys);
         for(let f_idx in future_stamp_keys) {
             let future_stamp = future_stamp_keys[f_idx];
+            if(Object.keys(data[future_stamp]).length == 0) {
+                delete data[future_stamp];
+                continue;
+            }
             let created_stamp_keys = 
                 Object.keys(data[future_stamp]).sort();
             let card; let datetime;
