@@ -329,21 +329,33 @@ class DateCard {
 
     createDateCard() {
         let card = document.createElement('li');
-        let card_fragment = this.buildFragment(
-            this.template(), this
-        );
+        card.style.cssText = new MainCssSet().card_style();
         let title = document.createElement('p');
         title.textContent = 
             this.card_info.title ? this.card_info.title : 
             this.defaultTitle();
+        title.style.cssText = new MainCssSet().title();
         card.appendChild(title);
-        this.registerID(card_fragment);
-        card.appendChild(card_fragment);
+
+        let subtitle = document.createElement('p');
+        subtitle.innerText = this.viewDateTime();
+        subtitle.style.cssText = new MainCssSet().subtitle();
+        card.appendChild(subtitle);
+
+        let datetime = document.createElement('p');
+        let date_fragment = this.buildFragment(
+            this.template(), this
+        );
+        this.registerID(date_fragment);
+        datetime.style.cssText = new MainCssSet().datetime();
+        datetime.appendChild(date_fragment);
+        card.appendChild(datetime);
         card.future_stamp = this.future_stamp;
         card.created_stamp = this.created_stamp;
 
         let delete_btn = document.createElement('p');
-        delete_btn.textContent = '×';
+        delete_btn.textContent = 'sakujo';
+        delete_btn.style.cssText = new MainCssSet().delete_btn();
         delete_btn.onclick = this.confirmDeletion;
         card.appendChild(delete_btn);
         this.date_card = card;
@@ -353,27 +365,47 @@ class DateCard {
         DateCollection.selected_card = e.target.parentElement;
         let content = document.createElement('div');
         let question = document.createElement('p');
+        question.style.cssText = "margin:10px";
         question.innerHTML = `
         <p>Are you sure you wanna delete this card?</p>
         `;
+        
         let yes = document.createElement('span');
         yes.innerText = 'yes';
-        yes.onclick = DateCard.delete;
+        yes.style.cssText = new MainCssSet().delete_yes();
+        yes.onclick = () => {
+            yes.style.background = '#007eff';
+            yes.style.color = '#fff';
+            setTimeout(() => {
+                DateCard.delete();
+            }, 500); 
+        }
         let space = document.createElement('span');
         space.innerText = '     ';
+        
         let no = document.createElement('span');
         no.innerText = 'no';
+        no.style.cssText =  new MainCssSet().delete_no();
         no.onclick = () => {
-            DateCollection.selected_card = undefined;
-            DateCard.confirm.close();
+            no.style.background = "#007eff";
+            no.style.color = "#fff";
+            setTimeout(()=>{
+                DateCollection.selected_card = undefined;
+                DateCard.confirm.close();
+            },500);
         };
         content.appendChild(question);
         content.appendChild(yes);
-        content.appendChild(space);
+        //content.appendChild(space);
         content.appendChild(no);
 
         DateCard.confirm = new Dialog(content);
         DateCard.confirm.show();
+    }
+
+    defaultTitle() {
+        let title = "Title";
+        return title;
     }
 
     static delete(e) {
@@ -455,16 +487,32 @@ class DateCard {
 
     template() {
         return `
-        <span id="weeks"> 00 </span> 週
-        <span id="wkdays"> 00 </span> 日 
-        <span id="hours"> 00 </span> 時間 
-        <span id="minutes"> 00 </span> 分 
-        <span id="seconds"> 00 </span> 秒 
+        <span id="weeks">　00　</span> 週
+        <span id="wkdays">　00　</span> 日 
+        <span id="hours">　00　</span> 時間 
+        <span id="minutes">　00　</span> 分 
+        <span id="seconds">　00　</span> 秒 
         `;
     }
 
     toElement() {
         return this.date_card;
+    }
+
+    viewDateTime() {
+        let hour, min;
+        if(this.time[0] == '0') {
+            hour = '00';
+        }else {
+            hour = this.time[0];
+        }
+        if(this.time[1] == '0') {
+            min = '00'
+        }else {
+            min = this.time[1];
+        }
+        let datetime = `${this.date[0]}nen ${this.date[1]+1}gatsu ${this.date[2]}nichi ${hour}:${min}`;
+        return datetime;
     }
 }
 
@@ -995,6 +1043,56 @@ class Timer {
 }
 
 class MainCssSet {
+    card_style() {
+        return `
+        position: relative;
+        `;
+    }
+    datetime() {
+        return `
+        margin: 10px auto;
+        color:green;
+        font: 2em bold;
+        `;
+    }
+
+    delete_btn() {
+        return `
+        position: relative;
+        left: 50%; bottom:0px;
+        transform-origin: 50% 50%;
+        transform:translate(-50%, -50%);
+        color:red;
+        font:bold;
+        `;
+    }
+
+    delete_yes() {
+        return `
+        margin: 15px;
+        padding: 1px 10px;
+        position:relative;
+        border-radius: 10%;
+        left: 35%;
+        border: 1px solid #007eff;
+        background: #fff;
+        color: #000;
+        `;
+    }
+
+    delete_no() {
+        return `
+        margin: 15px;
+        padding: 1px 10px;
+        position:relative;
+        border-radius:10%;
+        border:1px solid #007eff;
+        background:#fff;
+        right: 35%;
+        color: #000;
+        `;
+    }
+
     dialog_box() {
         return `
             position:fixed;
@@ -1028,6 +1126,27 @@ class MainCssSet {
     form() {
         return `
         overflow-y:scroll;
+        `;
+    }
+
+    subtitle() {
+        return `
+        margin: auto 20px;
+        text-align: left;
+        font: 1em bold;
+        color:gray;
+        `;
+    
+    }
+
+    title() {
+        return `
+        margin: auto 20px;
+        height: 25%;
+        font:2em bold;
+        color: #007eff;
+        overflow-x:scroll;
+        text-align:left;
         `;
     }
 }
