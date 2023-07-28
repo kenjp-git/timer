@@ -328,19 +328,20 @@ class DateCard {
     }
 
     createDateCard() {
+        let main_css = new MainCssSet();
         let card = document.createElement('li');
-        card.style.cssText = new MainCssSet().card_style();
+        card.style.cssText = main_css.card_style();
         let title = document.createElement('p');
         title.textContent = 
             this.card_info.title ? this.card_info.title : 
             this.defaultTitle();
-        title.style.cssText = new MainCssSet().title();
+        title.style.cssText = main_css.title();
         title.classList.add('noscrollbar');
         card.appendChild(title);
 
         let subtitle = document.createElement('p');
         subtitle.innerText = this.viewDateTime();
-        subtitle.style.cssText = new MainCssSet().subtitle();
+        subtitle.style.cssText = main_css.subtitle();
         card.appendChild(subtitle);
         
         let border_line = document.createElement('hr');
@@ -351,7 +352,7 @@ class DateCard {
             this.template(), this
         );
         this.registerID(date_fragment);
-        datetime.style.cssText = new MainCssSet().datetime();
+        datetime.style.cssText = main_css.datetime();
         datetime.appendChild(date_fragment);
         card.appendChild(datetime);
         
@@ -360,7 +361,7 @@ class DateCard {
 
         let delete_btn = document.createElement('p');
         delete_btn.textContent = '削除する';
-        delete_btn.style.cssText = new MainCssSet().delete_btn();
+        delete_btn.style.cssText = main_css.delete_btn();
         delete_btn.onclick = this.confirmDeletion;
         card.appendChild(delete_btn);
         this.date_card = card;
@@ -508,11 +509,16 @@ class DateCard {
         let hour, min;
         if(this.time[0] == '0') {
             hour = '00';
+        }else if(this.time[0] < 10 && this.time[0].length <2) {
+            hour = '0'+this.time[0];
         }else {
             hour = this.time[0];
         }
+
         if(this.time[1] == '0') {
             min = '00'
+        }else if(this.time[1] < 10 && this.time[1].length <2) {
+            min = '0'+this.time[1];
         }else {
             min = this.time[1];
         }
