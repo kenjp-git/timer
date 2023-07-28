@@ -506,21 +506,23 @@ class DateCard {
     }
 
     viewDateTime() {
-        let hour, min;
-        if(this.time[0] == '0') {
+        let hour = this.time[0];
+        console.log(typeof hour);
+        if(hour.toString() == '0' ) {
             hour = '00';
-        }else if(this.time[0] < 10 && this.time[0].length <2) {
-            hour = '0'+this.time[0];
+        }else if(hour < 10 && hour.toString().length <2) {
+            hour = '0'+hour.toString();
         }else {
-            hour = this.time[0];
+            hour = hour.toString();
         }
 
-        if(this.time[1] == '0') {
+        let min = this.time[1];
+        if(min.toString() == '0') {
             min = '00'
-        }else if(this.time[1] < 10 && this.time[1].length <2) {
-            min = '0'+this.time[1];
+        }else if(min < 10 && min.toString().length <2) {
+            min = '0'+ min.toString();
         }else {
-            min = this.time[1];
+            min = min.toString();
         }
         let datetime = `${this.date[0]} 年 ${this.date[1]+1} 月 ${this.date[2]} 日 ${hour}:${min}`;
         return datetime;
@@ -1059,6 +1061,7 @@ class MainCssSet {
         position: relative;
         `;
     }
+    
     datetime() {
         return `
         margin: 10px auto;
@@ -1161,7 +1164,7 @@ class MainCssSet {
 
     title() {
         return `
-        margin: 10px 20px;
+        margin: 10px 20px 0px;
         height: 25%;
         font:2em bold;
         color: #007eff;

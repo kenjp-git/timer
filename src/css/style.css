@@ -29,8 +29,13 @@ header p {
   margin:10px 0;
 }
 
-h6 a{
+h1 {
+  font-size: 2.5em;
+}
+
+h5 a{
   margin: 0 0 20px;
+  font-size:1em;
   text-decoration-line: none;
   color:gray;
 }
