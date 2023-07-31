@@ -1,5 +1,6 @@
 /**2023/02/01-11:33 */
 /**2023/02/28 02:44:01 */
+/**2023/07/15 19:34:35 */
 'use strict';
 
 /*function main() {
@@ -978,7 +979,7 @@ class TimeCard {
         own.hours = fragment.querySelector('#hours');
         own.minutes = fragment.querySelector('#minutes');
         own.seconds = fragment.querySelector('#seconds');
-        console.log(own)
+        //console.log(own)
     }
 
     render(tmplt, vals) {
