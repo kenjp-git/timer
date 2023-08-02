@@ -155,3 +155,1776 @@ Switched to branch 'datatime-register'
 * datatime-register
   master
 ~/.../forestwizard/timer
+
+first commit
+~/.../forestwizard/timer $ git branch
+  datatime-register
+* master
+~/.../forestwizard/timer $ git checkout
+.git/          .vscode/       git_log        run.js         specification
+.htaccess      archives/      index.html     run0.js        src/
+~/.../forestwizard/timer $ git checkout datatime-register
+Switched to branch 'datatime-register'
+~/.../forestwizard/timer $ git log --graph
+* commit f0935c72efc2f31544922677ac04aca3121e27be (HEAD -> datatime-register, master)
+| Author: Buendia <kenneth.buendia.code@gmail.com>
+| Date:   Mon Jul 17 21:22:53 2023 +0900
+|
+|     git_log
+|
+* commit ce6766bdb05894b5ca98002868cfb55b18cbcba2
+  Author: Buendia <kenneth.buendia.code@gmail.com>
+  Date:   Mon Jul 17 21:17:52 2023 +0900
+
+      first commit
+~/.../forestwizard/timer $ git branch
+* datatime-register
+  master
+~/.../forestwizard/timer $ git status
+On branch datatime-register
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   git_log
+
+no changes added to commit (use "git add" and/or "git commit -a")
+~/.../forestwizard/timer $ git diff
+diff --git a/git_log b/git_log
+index 1cf2480..1b3b593 100644
+--- a/git_log
++++ b/git_log
+@@ -89,4 +89,69 @@ Date:   Mon Jul 17 21:17:52 2023 +0900
+     first commit
+ ~/.../forestwizard/timer $ git branch
+ * master
+-~/.../forestwizard/timer $
+\ No newline at end of file
++~/.../forestwizard/timer $ git add
++Nothing specified, nothing added.
++hint: Maybe you wanted to say 'git add .'?
++hint: Turn this message off by running
++hint: "git config advice.addEmptyPathspec false"
++~/.../forestwizard/timer $ git status
+:...skipping...
+diff --git a/git_log b/git_log
+index 1cf2480..1b3b593 100644
+--- a/git_log
++++ b/git_log
+@@ -89,4 +89,69 @@ Date:   Mon Jul 17 21:17:52 2023 +0900
+     first commit
+ ~/.../forestwizard/timer $ git branch
+ * master
+-~/.../forestwizard/timer $
+\ No newline at end of file
++~/.../forestwizard/timer $ git add
++Nothing specified, nothing added.
++hint: Maybe you wanted to say 'git add .'?
+diff --git a/git_log b/git_log
+index 1cf2480..1b3b593 100644
+--- a/git_log
++++ b/git_log
+@@ -89,4 +89,69 @@ Date:   Mon Jul 17 21:17:52 2023 +0900
+     first commit
+ ~/.../forestwizard/timer $ git branch
+ * master
+-~/.../forestwizard/timer $
+\ No newline at end of file
++~/.../forestwizard/timer $ git add
++Nothing specified, nothing added.
++hint: Maybe you wanted to say 'git add .'?
++hint: Turn this message off by running
++hint: "git config advice.addEmptyPathspec false"
++~/.../forestwizard/timer $ git status
++On branch master
++Untracked files:
++  (use "git add <file>..." to include in what will be committed)
++        git_log
++
++nothing added to commit but untracked files present (use "git add" to track)
++~/.../forestwizard/timer $ git add -A
++~/.../forestwizard/timer $ git commit -m 'git_log'
++[master f0935c7] git_log
++ 1 file changed, 92 insertions(+)
++ create mode 100644 git_log
++~/.../forestwizard/timer $ git log
++commit f0935c72efc2f31544922677ac04aca3121e27be (HEAD -> master)
++Author: Buendia <kenneth.buendia.code@gmail.com>
++Date:   Mon Jul 17 21:22:53 2023 +0900
++
++    git_log
++
++commit ce6766bdb05894b5ca98002868cfb55b18cbcba2
++Author: Buendia <kenneth.buendia.code@gmail.com>
++Date:   Mon Jul 17 21:17:52 2023 +0900
++
++    first commit
++~/.../forestwizard/timer $ git branch datatime-register
++~/.../forestwizard/timer $ git log --graph
++* commit f0935c72efc2f31544922677ac04aca3121e27be (HEAD -> master, datatime-register)
++| Author: Buendia <kenneth.buendia.code@gmail.com>
++| Date:   Mon Jul 17 21:22:53 2023 +0900
++|
++|     git_log
++|
++* commit ce6766bdb05894b5ca98002868cfb55b18cbcba2
++  Author: Buendia <kenneth.buendia.code@gmail.com>
++  Date:   Mon Jul 17 21:17:52 2023 +0900
++
++      first commit
++~/.../forestwizard/timer $ git branch
++  datatime-register
++* master
++~/.../forestwizard/timer $ git checkout
++.git/          .vscode/       git_log        run.js         specification
++.htaccess      archives/      index.html     run0.js        src/
++~/.../forestwizard/timer $ git checkout datatime-register
++Switched to branch 'datatime-register'
++~/.../forestwizard/timer $ git log --graph
++* commit f0935c72efc2f31544922677ac04aca3121e27be (HEAD -> datatime-register, master)
++| Author: Buendia <kenneth.buendia.code@gmail.com>
++| Date:   Mon Jul 17 21:22:53 2023 +0900
++|
++|     git_log
++|
++* commit ce6766bdb05894b5ca98002868cfb55b18cbcba2
++  Author: Buendia <kenneth.buendia.code@gmail.com>
++  Date:   Mon Jul 17 21:17:52 2023 +0900
++
++      first commit
++~/.../forestwizard/timer $ git branch
++* datatime-register
++  master
++~/.../forestwizard/timer
+\ No newline at end of file
+~/.../forestwizard/timer $ ls
+archives  git_log  index.html  run.js  run0.js  specification  src
+~/.../forestwizard/timer $ touch .gitignore
+~/.../forestwizard/timer $ git status
+On branch datatime-register
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   git_log
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        .gitignore
+
+no changes added to commit (use "git add" and/or "git commit -a")
+~/.../forestwizard/timer $ git add -A
+~/.../forestwizard/timer $ git commit -m 'add file .gitignore'
+[datatime-register a19972c] add file .gitignore
+ 2 files changed, 66 insertions(+), 1 deletion(-)
+ create mode 100644 .gitignore
+~/.../forestwizard/timer $ git status
+On branch datatime-register
+nothing to commit, working tree clean
+~/.../forestwizard/timer $ git checkout master
+Switched to branch 'master'
+~/.../forestwizard/timer $ ls
+archives  git_log  index.html  run.js  run0.js  specification  src
+~/.../forestwizard/timer $ ls -a
+.  ..  .git  .htaccess  .vscode  archives  git_log  index.html  run.js  run0.js  specification  src
+~/.../forestwizard/timer $ git checkout datetime-register
+error: pathspec 'datetime-register' did not match any file(s) known to git
+~/.../forestwizard/timer $ git checkout datatime-register
+Switched to branch 'datatime-register'
+~/.../forestwizard/timer $ ls -a
+.  ..  .git  .gitignore  .htaccess  .vscode  archives  git_log  index.html  run.js  run0.js  specification  src
+~/.../forestwizard/timer $ vim .gitignore
+~/.../forestwizard/timer $ git status
+On branch datatime-register
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   .gitignore
+
+no changes added to commit (use "git add" and/or "git commit -a")
+~/.../forestwizard/timer $ git add -A
+~/.../forestwizard/timer $ git commit -m 'changed .gitignore'
+[datatime-register e3d8e29] changed .gitignore
+ 1 file changed, 1 insertion(+)
+~/.../forestwizard/timer $ git status
+On branch datatime-register
+nothing to commit, working tree clean
+~/.../forestwizard/timer $ git log
+commit e3d8e297558301175c128938807e7d9e27940463 (HEAD -> datatime-register)
+Author: Buendia <kenneth.buendia.code@gmail.com>
+Date:   Mon Jul 17 21:53:48 2023 +0900
+
+    changed .gitignore
+
+commit a19972c2a68d8c48c3ef21d294f22e1613a7d59d
+commit e3d8e297558301175c128938807e7d9e27940463 (HEAD -> datatime-register)
+Author: Buendia <kenneth.buendia.code@gmail.com>
+Date:   Mon Jul 17 21:53:48 2023 +0900
+
+    changed .gitignore
+
+commit a19972c2a68d8c48c3ef21d294f22e1613a7d59d
+commit e3d8e297558301175c128938807e7d9e27940463 (HEAD -> datatime-register)
+Author: Buendia <kenneth.buendia.code@gmail.com>
+Date:   Mon Jul 17 21:53:48 2023 +0900
+
+    changed .gitignore
+
+commit a19972c2a68d8c48c3ef21d294f22e1613a7d59d
+Author: Buendia <kenneth.buendia.code@gmail.com>
+Date:   Mon Jul 17 21:49:56 2023 +0900
+
+    add file .gitignore
+
+commit f0935c72efc2f31544922677ac04aca3121e27be (master)
+Author: Buendia <kenneth.buendia.code@gmail.com>
+Date:   Mon Jul 17 21:22:53 2023 +0900
+
+~/.../forestwizard/timer $ git status
+On branch datatime-register
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   src/js/init.js
+
+no changes added to commit (use "git add" and/or "git commit -a")
+~/.../forestwizard/timer $ git commit -am 'improved src/js/init.js class DateCollection'
+[datatime-register 8789a7e] improved src/js/init.js class DateCollection
+ 1 file changed, 56 insertions(+), 25 deletions(-)
+~/.../forestwizard/timer $ git branch
+* datatime-register
+  master
+~/.../forestwizard/timer $ git reflog
+8789a7e (HEAD -> datatime-register) HEAD@{0}: commit: improved src/js/init.js class DateCollection
+e3d8e29 HEAD@{1}: commit: changed .gitignore
+a19972c HEAD@{2}: checkout: moving from master to datatime-register
+f0935c7 (master) HEAD@{3}: checkout: moving from datatime-register to master
+a19972c HEAD@{4}: commit: add file .gitignore
+f0935c7 (master) HEAD@{5}: checkout: moving from master to datatime-register
+f0935c7 (master) HEAD@{6}: commit: git_log
+ce6766b HEAD@{7}: commit (initial): first commit
+~/.../forestwizard/timer $ ls
+archives  git_log  index.html  run.js  run0.js  specification  src
+~/.../forestwizard/timer $ ls -a
+.  ..  .git  .gitignore  .htaccess  .vscode  archives  git_log  index.html  run.js  run0.js  specification  src
+~/.../forestwizard/timer $ cd .vscode/
+~/.../timer/.vscode $ ls -a
+.  ..  launch.json
+~/.../timer/.vscode $ vim launch.json
+~/.../timer/.vscode $ git status
+On branch datatime-register
+nothing to commit, working tree clean
+~/.../timer/.vscode $ git log --graph
+* commit 8789a7ef22ec50d0a43b39c9499152e8d4b0214e (HEAD -> datatime-register)
+| Author: Buendia <kenneth.buendia.code@gmail.com>
+| Date:   Wed Jul 19 09:29:10 2023 +0900
+|
+|     improved src/js/init.js class DateCollection
+|
+* commit e3d8e297558301175c128938807e7d9e27940463
+| Author: Buendia <kenneth.buendia.code@gmail.com>
+| Date:   Mon Jul 17 21:53:48 2023 +0900
+|
+|     changed .gitignore
+|
+* commit a19972c2a68d8c48c3ef21d294f22e1613a7d59d
+| Author: Buendia <kenneth.buendia.code@gmail.com>
+| Date:   Mon Jul 17 21:49:56 2023 +0900
+|
+:...skipping...
+* commit 8789a7ef22ec50d0a43b39c9499152e8d4b0214e (HEAD -> datatime-register)
+| Author: Buendia <kenneth.buendia.code@gmail.com>
+| Date:   Wed Jul 19 09:29:10 2023 +0900
+|
+|     improved src/js/init.js class DateCollection
+|
+* commit e3d8e297558301175c128938807e7d9e27940463
+| Author: Buendia <kenneth.buendia.code@gmail.com>
+| Date:   Mon Jul 17 21:53:48 2023 +0900
+|
+|     changed .gitignore
+|
+* commit a19972c2a68d8c48c3ef21d294f22e1613a7d59d
+* commit 8789a7ef22ec50d0a43b39c9499152e8d4b0214e (HEAD -> datatime-register)
+| Author: Buendia <kenneth.buendia.code@gmail.com>
+| Date:   Wed Jul 19 09:29:10 2023 +0900
+|
+|     improved src/js/init.js class DateCollection
+|
+* commit e3d8e297558301175c128938807e7d9e27940463
+| Author: Buendia <kenneth.buendia.code@gmail.com>
+| Date:   Mon Jul 17 21:53:48 2023 +0900
+|
+|     changed .gitignore
+|
+* commit a19972c2a68d8c48c3ef21d294f22e1613a7d59d
+| Author: Buendia <kenneth.buendia.code@gmail.com>
+| Date:   Mon Jul 17 21:49:56 2023 +0900
+|
+~/.../timer/.vscode $ cd ..
+~/.../forestwizard/timer $ git log --graph
+* commit 8789a7ef22ec50d0a43b39c9499152e8d4b0214e (HEAD -> datatime-register)
+| Author: Buendia <kenneth.buendia.code@gmail.com>
+| Date:   Wed Jul 19 09:29:10 2023 +0900
+|
+|     improved src/js/init.js class DateCollection
+|
+* commit e3d8e297558301175c128938807e7d9e27940463
+| Author: Buendia <kenneth.buendia.code@gmail.com>
+| Date:   Mon Jul 17 21:53:48 2023 +0900
+|
+|     changed .gitignore
+|
+* commit a19972c2a68d8c48c3ef21d294f22e1613a7d59d
+| Author: Buendia <kenneth.buendia.code@gmail.com>
+| Date:   Mon Jul 17 21:49:56 2023 +0900
+|
+:...skipping...
+* commit 8789a7ef22ec50d0a43b39c9499152e8d4b0214e (HEAD -> datatime-register)
+| Author: Buendia <kenneth.buendia.code@gmail.com>
+| Date:   Wed Jul 19 09:29:10 2023 +0900
+|
+|     improved src/js/init.js class DateCollection
+|
+* commit e3d8e297558301175c128938807e7d9e27940463
+| Author: Buendia <kenneth.buendia.code@gmail.com>
+| Date:   Mon Jul 17 21:53:48 2023 +0900
+|
+|     changed .gitignore
+|
+* commit a19972c2a68d8c48c3ef21d294f22e1613a7d59d
+* commit 8789a7ef22ec50d0a43b39c9499152e8d4b0214e (HEAD -> datatime-register)
+| Author: Buendia <kenneth.buendia.code@gmail.com>
+| Date:   Wed Jul 19 09:29:10 2023 +0900
+|
+|     improved src/js/init.js class DateCollection
+|
+* commit e3d8e297558301175c128938807e7d9e27940463
+| Author: Buendia <kenneth.buendia.code@gmail.com>
+| Date:   Mon Jul 17 21:53:48 2023 +0900
+|
+|     changed .gitignore
+|
+* commit a19972c2a68d8c48c3ef21d294f22e1613a7d59d
+| Author: Buendia <kenneth.buendia.code@gmail.com>
+| Date:   Mon Jul 17 21:49:56 2023 +0900
+|
+~/.../forestwizard/timer $ git status
+On branch datatime-register
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   src/tmplt/main.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+~/.../forestwizard/timer $ git commit -am 'fixed src/tmplt/main.html script element'
+[datatime-register a2f2e65] fixed src/tmplt/main.html script element
+ 1 file changed, 6 insertions(+), 3 deletions(-)
+~/.../forestwizard/timer $ git commiy -am 'edit: src/js/init.js class DateCard, DateCollection'
+git: 'commiy' is not a git command. See 'git --help'.
+
+The most similar command is
+        commit
+~/.../forestwizard/timer $ git commit -am 'edit: src/js/init.js class DateCard, DateCollection'
+On branch datatime-register
+nothing to commit, working tree clean
+~/.../forestwizard/timer $ git reflog
+a2f2e65 (HEAD -> datatime-register) HEAD@{0}: commit: fixed src/tmplt/main.html script element
+8789a7e HEAD@{1}: commit: improved src/js/init.js class DateCollection
+e3d8e29 HEAD@{2}: commit: changed .gitignore
+a19972c HEAD@{3}: checkout: moving from master to datatime-register
+f0935c7 (master) HEAD@{4}: checkout: moving from datatime-register to master
+a19972c HEAD@{5}: commit: add file .gitignore
+f0935c7 (master) HEAD@{6}: checkout: moving from master to datatime-register
+f0935c7 (master) HEAD@{7}: commit: git_log
+ce6766b HEAD@{8}: commit (initial): first commit
+~/.../forestwizard/timer $ git log
+commit a2f2e65a1b87dc15407bddab98c6dc3d3e699e6a (HEAD -> datatime-register)
+Author: Buendia <kenneth.buendia.code@gmail.com>
+Date:   Wed Jul 19 10:31:02 2023 +0900
+
+    fixed src/tmplt/main.html script element
+
+commit 8789a7ef22ec50d0a43b39c9499152e8d4b0214e
+Author: Buendia <kenneth.buendia.code@gmail.com>
+Date:   Wed Jul 19 09:29:10 2023 +0900
+
+    improved src/js/init.js class DateCollection
+
+commit e3d8e297558301175c128938807e7d9e27940463
+Author: Buendia <kenneth.buendia.code@gmail.com>
+Date:   Mon Jul 17 21:53:48 2023 +0900
+
+~/.../forestwizard/timer $ git commit -am 'edit: src/js/init.js class DateCard, DateCollection'
+On branch datatime-register
+nothing to commit, working tree clean
+~/.../forestwizard/timer $ git status
+On branch datatime-register
+nothing to commit, working tree clean
+~/.../forestwizard/timer $ git status
+On branch datatime-register
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   src/js/init.js
+
+no changes added to commit (use "git add" and/or "git commit -a")
+~/.../forestwizard/timer $ git commit -am 'edit: src/js/init.js class DateCard, DateCollection'
+[datatime-register f73c198] edit: src/js/init.js class DateCard, DateCollection
+ 1 file changed, 132 insertions(+), 21 deletions(-)
+~/.../forestwizard/timer $ git reflog
+f73c198 (HEAD -> datatime-register) HEAD@{0}: commit: edit: src/js/init.js class DateCard, DateCollection
+a2f2e65 HEAD@{1}: commit: fixed src/tmplt/main.html script element
+8789a7e HEAD@{2}: commit: improved src/js/init.js class DateCollection
+e3d8e29 HEAD@{3}: commit: changed .gitignore
+a19972c HEAD@{4}: checkout: moving from master to datatime-register
+f0935c7 (master) HEAD@{5}: checkout: moving from datatime-register to master
+a19972c HEAD@{6}: commit: add file .gitignore
+f0935c7 (master) HEAD@{7}: checkout: moving from master to datatime-register
+f0935c7 (master) HEAD@{8}: commit: git_log
+ce6766b HEAD@{9}: commit (initial): first commit
+~/.../forestwizard/timer $ git commit -am 'fixed src/js/init.js class DateCard constructor'
+[datatime-register 45adc36] fixed src/js/init.js class DateCard constructor
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+~/.../forestwizard/timer $ cd ..
+~/.../MyDevelopments/forestwizard $ node run.js
+localhost:2525
+/timer/
+/timer/
+/timer/src/css/style.css
+/timer/src/css/style.css
+/timer/src/js/init.js
+/timer/src/js/init.js
+/timer/src/js/app.js
+/timer/src/js/app.js
+/timer/src/img/favicon.ico
+/timer/src/img/favicon.ico
+/timer/
+/timer/
+/timer/src/css/style.css
+/timer/src/css/style.css
+/timer/src/js/init.js
+/timer/src/js/init.js
+/timer/src/js/app.js
+/timer/src/js/app.js
+/timer/src/tmplt/main.html
+/timer/src/tmplt/main.html
+/timer/src/img/favicon.ico
+/timer/src/img/favicon.ico
+/timer/src/tmplt/next_month_timer.html
+/timer/src/tmplt/next_month_timer.html
+^C
+~/.../MyDevelopments/forestwizard $ cd timer/;ls -a
+.  ..  .git  .gitignore  .htaccess  .vscode  archives  git_log  index.html  run.js  run0.js  specification  src
+~/.../forestwizard/timer $ git commit -am 'fixed src/js/init.js class DateTime method parse~'
+[datatime-register 6a0d353] fixed src/js/init.js class DateTime method parse~
+ 1 file changed, 5 insertions(+), 5 deletions(-)
+~/.../forestwizard/timer $ git commit -am 'fixed src/js/init.js DateCollection#setDataToCollection()'
+[datatime-register def760c] fixed src/js/init.js DateCollection#setDataToCollection()
+ 2 files changed, 56 insertions(+), 32 deletions(-)
+~/.../forestwizard/timer $ gil log
+No command gil found, did you mean:
+ Command git in package git
+ Command gio in package glib-bin
+ Command pil in package picolisp
+ Command gie in package proj
+~/.../forestwizard/timer $ git status
+On branch datatime-register
+nothing to commit, working tree clean
+~/.../forestwizard/timer $ git status
+On branch datatime-register
+nothing to commit, working tree clean
+~/.../forestwizard/timer $ git commit -am 'fixed src/js/init.js MainCssSet#dialog() transition-duration'
+[datatime-register 1c76c11] fixed src/js/init.js MainCssSet#dialog() transition-duration
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+~/.../forestwizard/timer $ git commit -am 'fixed src/tmplt/main.html viewForm(), addDateCard()'
+[datatime-register 132e510] fixed src/tmplt/main.html viewForm(), addDateCard()
+ 1 file changed, 6 insertions(+), 2 deletions(-)
+~/.../forestwizard/timer $ git commit -am 'improved src/js/init.js DateCard#registerId()'
+[datatime-register af55a1c] improved src/js/init.js DateCard#registerId()
+ 1 file changed, 21 insertions(+), 7 deletions(-)
+~/.../forestwizard/timer $ git commit -am 'improved about card timer at src/js/init.js class DateCard, DateCollection'
+[datatime-register 32eecaf] improved about card timer at src/js/init.js class DateCard, DateCollection
+ 2 files changed, 28 insertions(+), 5 deletions(-)
+~/.../forestwizard/timer $ git status
+On branch datatime-register
+nothing to commit, working tree clean
+~/.../forestwizard/timer $ git commit -am 'fixed src/js/init.js DateCard#parser when datetime form given null'
+[datatime-register 9cb20cf] fixed src/js/init.js DateCard#parser when datetime form given null
+ 1 file changed, 17 insertions(+), 2 deletions(-)
+~/.../forestwizard/timer $ git commit -am 'improved src/js/init.js DateCard, TimeCard, Timer'
+[datatime-register b90eabf] improved src/js/init.js DateCard, TimeCard, Timer
+ 1 file changed, 16 insertions(+), 3 deletions(-)
+~/.../forestwizard/timer $ git checkout master
+Switched to branch 'master'
+~/.../forestwizard/timer $ ls -a
+.  ..  .git  .htaccess  .vscode  archives  git_log  index.html  run.js  run0.js  specification  src
+~/.../forestwizard/timer $ git branch
+  datatime-register
+* master
+~/.../forestwizard/timer $ git checkout datatime-register
+Switched to branch 'datatime-register'
+~/.../forestwizard/timer $ git branch
+* datatime-register
+  master
+~/.../forestwizard/timer $ git commit -am 'improved src/js/init.js DateCard#createDateCard'
+[datatime-register f46e99f] improved src/js/init.js DateCard#createDateCard
+ 1 file changed, 9 insertions(+), 7 deletions(-)
+~/.../forestwizard/timer $ git reflog
+f46e99f (HEAD -> datatime-register) HEAD@{0}: commit: improved src/js/init.js DateCard#createDateCard
+b90eabf HEAD@{1}: checkout: moving from master to datatime-register
+f0935c7 (master) HEAD@{2}: checkout: moving from datatime-register to master
+b90eabf HEAD@{3}: commit: improved src/js/init.js DateCard, TimeCard, Timer
+9cb20cf HEAD@{4}: commit: fixed src/js/init.js DateCard#parser when datetime form given null
+32eecaf HEAD@{5}: checkout: moving from datatime-register to datatime-register
+32eecaf HEAD@{6}: commit: improved about card timer at src/js/init.js class DateCard, DateCollection
+af55a1c HEAD@{7}: commit: improved src/js/init.js DateCard#registerId()
+132e510 HEAD@{8}: commit: fixed src/tmplt/main.html viewForm(), addDateCard()
+1c76c11 HEAD@{9}: commit: fixed src/js/init.js MainCssSet#dialog() transition-duration
+def760c HEAD@{10}: commit: fixed src/js/init.js DateCollection#setDataToCollection()
+6a0d353 HEAD@{11}: commit: fixed src/js/init.js class DateTime method parse~
+45adc36 HEAD@{12}: commit: fixed src/js/init.js class DateCard constructor
+f73c198 HEAD@{13}: commit: edit: src/js/init.js class DateCard, DateCollection
+a2f2e65 HEAD@{14}: commit: fixed src/tmplt/main.html script element
+8789a7e HEAD@{15}: commit: improved src/js/init.js class DateCollection
+~/.../forestwizard/timer $ git log --graph
+* commit f46e99f4adb94fc7daeb19f78572e4a4fd51c513 (HEAD -> datatime-register)
+| Author: Buendia <kenneth.buendia.code@gmail.com>
+| Date:   Thu Jul 20 17:14:05 2023 +0900
+|
+|     improved src/js/init.js DateCard#createDateCard
+|
+* commit b90eabf829f50329759d3ab0f67d524344b3b78f
+| Author: Buendia <kenneth.buendia.code@gmail.com>
+| Date:   Thu Jul 20 14:30:19 2023 +0900
+|
+|     improved src/js/init.js DateCard, TimeCard, Timer
+|
+* commit 9cb20cfdaed9c0ad471507ef82298a00f0cb7bde
+| Author: Buendia <kenneth.buendia.code@gmail.com>
+| Date:   Thu Jul 20 12:22:45 2023 +0900
+|
+:...skipping...
+* commit f46e99f4adb94fc7daeb19f78572e4a4fd51c513 (HEAD -> datatime-register)
+| Author: Buendia <kenneth.buendia.code@gmail.com>
+| Date:   Thu Jul 20 17:14:05 2023 +0900
+|
+|     improved src/js/init.js DateCard#createDateCard
+|
+* commit b90eabf829f50329759d3ab0f67d524344b3b78f
+| Author: Buendia <kenneth.buendia.code@gmail.com>
+| Date:   Thu Jul 20 14:30:19 2023 +0900
+|
+|     improved src/js/init.js DateCard, TimeCard, Timer
+|
+* commit 9cb20cfdaed9c0ad471507ef82298a00f0cb7bde
+* commit f46e99f4adb94fc7daeb19f78572e4a4fd51c513 (HEAD -> datatime-register)
+| Author: Buendia <kenneth.buendia.code@gmail.com>
+| Date:   Thu Jul 20 17:14:05 2023 +0900
+|
+|     improved src/js/init.js DateCard#createDateCard
+|
+* commit b90eabf829f50329759d3ab0f67d524344b3b78f
+| Author: Buendia <kenneth.buendia.code@gmail.com>
+| Date:   Thu Jul 20 14:30:19 2023 +0900
+|
+|     improved src/js/init.js DateCard, TimeCard, Timer
+|
+* commit 9cb20cfdaed9c0ad471507ef82298a00f0cb7bde
+| Author: Buendia <kenneth.buendia.code@gmail.com>
+| Date:   Thu Jul 20 12:22:45 2023 +0900
+|
+|     fixed src/js/init.js DateCard#parser when datetime form given null
+|
+* commit 32eecaf6f6bce6038bb0045d0ab2cb8033fb8615
+| Author: Buendia <kenneth.buendia.code@gmail.com>
+| Date:   Thu Jul 20 11:38:37 2023 +0900
+|
+|     improved about card timer at src/js/init.js class DateCard, DateCollection
+|
+* commit af55a1c64bd445e1316ab88173badc6be5ae9cfe
+| Author: Buendia <kenneth.buendia.code@gmail.com>
+| Date:   Thu Jul 20 10:26:28 2023 +0900
+|
+|     improved src/js/init.js DateCard#registerId()
+|
+* commit 132e510368625c25f3612d7b4bbc1d53e03d679f
+| Author: Buendia <kenneth.buendia.code@gmail.com>
+| Date:   Thu Jul 20 09:03:11 2023 +0900
+|
+|     fixed src/tmplt/main.html viewForm(), addDateCard()
+|
+* commit 1c76c1149c5c15da7252aac964fa9573a180ab16
+| Author: Buendia <kenneth.buendia.code@gmail.com>
+| Date:   Thu Jul 20 07:14:55 2023 +0900
+|
+|     fixed src/js/init.js MainCssSet#dialog() transition-duration
+|
+* commit def760c6593552e6d1a0d591a16a00e48945f764
+| Author: Buendia <kenneth.buendia.code@gmail.com>
+| Date:   Thu Jul 20 07:07:11 2023 +0900
+|
+|     fixed src/js/init.js DateCollection#setDataToCollection()
+|
+* commit 6a0d353f6897ee5a88a99718fa53a69b73e2e65a
+| Author: Buendia <kenneth.buendia.code@gmail.com>
+| Date:   Wed Jul 19 16:27:40 2023 +0900
+|
+|     fixed src/js/init.js class DateTime method parse~
+|
+* commit 45adc36e5d00ebf9cc5a4a7be67e59aca1ead72b
+| Author: Buendia <kenneth.buendia.code@gmail.com>
+| Date:   Wed Jul 19 15:54:44 2023 +0900
+|
+|     fixed src/js/init.js class DateCard constructor
+|
+* commit f73c198ba30a4ae0794894269f0b2422168d6d1d
+| Author: Buendia <kenneth.buendia.code@gmail.com>
+| Date:   Wed Jul 19 15:38:17 2023 +0900
+|
+|     edit: src/js/init.js class DateCard, DateCollection
+|
+* commit a2f2e65a1b87dc15407bddab98c6dc3d3e699e6a
+| Author: Buendia <kenneth.buendia.code@gmail.com>
+| Date:   Wed Jul 19 10:31:02 2023 +0900
+|
+|     fixed src/tmplt/main.html script element
+|
+* commit 8789a7ef22ec50d0a43b39c9499152e8d4b0214e
+| Author: Buendia <kenneth.buendia.code@gmail.com>
+| Date:   Wed Jul 19 09:29:10 2023 +0900
+|
+|     improved src/js/init.js class DateCollection
+|
+* commit e3d8e297558301175c128938807e7d9e27940463
+| Author: Buendia <kenneth.buendia.code@gmail.com>
+| Date:   Mon Jul 17 21:53:48 2023 +0900
+|
+|     changed .gitignore
+|
+* commit a19972c2a68d8c48c3ef21d294f22e1613a7d59d
+| Author: Buendia <kenneth.buendia.code@gmail.com>
+| Date:   Thu Jul 20 11:38:37 2023 +0900
+|
+|     improved about card timer at src/js/init.js class DateCard, DateCollection
+|
+* commit af55a1c64bd445e1316ab88173badc6be5ae9cfe
+| Author: Buendia <kenneth.buendia.code@gmail.com>
+| Date:   Thu Jul 20 10:26:28 2023 +0900
+|
+|     improved src/js/init.js DateCard#registerId()
+|
+* commit 132e510368625c25f3612d7b4bbc1d53e03d679f
+| Author: Buendia <kenneth.buendia.code@gmail.com>
+| Date:   Thu Jul 20 09:03:11 2023 +0900
+|
+|     fixed src/tmplt/main.html viewForm(), addDateCard()
+|
+* commit 1c76c1149c5c15da7252aac964fa9573a180ab16
+| Author: Buendia <kenneth.buendia.code@gmail.com>
+| Date:   Thu Jul 20 07:14:55 2023 +0900
+|
+|     fixed src/js/init.js MainCssSet#dialog() transition-duration
+|
+* commit def760c6593552e6d1a0d591a16a00e48945f764
+| Author: Buendia <kenneth.buendia.code@gmail.com>
+| Date:   Thu Jul 20 07:07:11 2023 +0900
+|
+|     fixed src/js/init.js DateCollection#setDataToCollection()
+|
+* commit 6a0d353f6897ee5a88a99718fa53a69b73e2e65a
+| Author: Buendia <kenneth.buendia.code@gmail.com>
+| Date:   Wed Jul 19 16:27:40 2023 +0900
+|
+|     fixed src/js/init.js class DateTime method parse~
+|
+* commit 45adc36e5d00ebf9cc5a4a7be67e59aca1ead72b
+| Author: Buendia <kenneth.buendia.code@gmail.com>
+| Date:   Wed Jul 19 15:54:44 2023 +0900
+|
+|     fixed src/js/init.js class DateCard constructor
+|
+* commit f73c198ba30a4ae0794894269f0b2422168d6d1d
+| Author: Buendia <kenneth.buendia.code@gmail.com>
+| Date:   Wed Jul 19 15:38:17 2023 +0900
+|
+|     edit: src/js/init.js class DateCard, DateCollection
+|
+* commit a2f2e65a1b87dc15407bddab98c6dc3d3e699e6a
+| Author: Buendia <kenneth.buendia.code@gmail.com>
+| Date:   Wed Jul 19 10:31:02 2023 +0900
+|
+|     fixed src/tmplt/main.html script element
+|
+* commit 8789a7ef22ec50d0a43b39c9499152e8d4b0214e
+| Author: Buendia <kenneth.buendia.code@gmail.com>
+| Date:   Wed Jul 19 09:29:10 2023 +0900
+|
+|     improved src/js/init.js class DateCollection
+|
+* commit e3d8e297558301175c128938807e7d9e27940463
+| Author: Buendia <kenneth.buendia.code@gmail.com>
+| Date:   Mon Jul 17 21:53:48 2023 +0900
+|
+|     changed .gitignore
+|
+* commit a19972c2a68d8c48c3ef21d294f22e1613a7d59d
+* commit f46e99f4adb94fc7daeb19f78572e4a4fd51c513 (HEAD -> datatime-register)
+| Author: Buendia <kenneth.buendia.code@gmail.com>
+| Date:   Thu Jul 20 17:14:05 2023 +0900
+|
+|     improved src/js/init.js DateCard#createDateCard
+|
+* commit b90eabf829f50329759d3ab0f67d524344b3b78f
+| Author: Buendia <kenneth.buendia.code@gmail.com>
+| Date:   Thu Jul 20 14:30:19 2023 +0900
+|
+|     improved src/js/init.js DateCard, TimeCard, Timer
+|
+* commit 9cb20cfdaed9c0ad471507ef82298a00f0cb7bde
+| Author: Buendia <kenneth.buendia.code@gmail.com>
+| Date:   Thu Jul 20 12:22:45 2023 +0900
+|
+|     fixed src/js/init.js DateCard#parser when datetime form given null
+|
+* commit 32eecaf6f6bce6038bb0045d0ab2cb8033fb8615
+| Author: Buendia <kenneth.buendia.code@gmail.com>
+| Date:   Thu Jul 20 11:38:37 2023 +0900
+|
+|     improved about card timer at src/js/init.js class DateCard, DateCollection
+|
+* commit af55a1c64bd445e1316ab88173badc6be5ae9cfe
+| Author: Buendia <kenneth.buendia.code@gmail.com>
+| Date:   Thu Jul 20 10:26:28 2023 +0900
+|
+|     improved src/js/init.js DateCard#registerId()
+|
+* commit 132e510368625c25f3612d7b4bbc1d53e03d679f
+| Author: Buendia <kenneth.buendia.code@gmail.com>
+| Date:   Thu Jul 20 09:03:11 2023 +0900
+|
+|     fixed src/tmplt/main.html viewForm(), addDateCard()
+|
+* commit 1c76c1149c5c15da7252aac964fa9573a180ab16
+| Author: Buendia <kenneth.buendia.code@gmail.com>
+| Date:   Thu Jul 20 07:14:55 2023 +0900
+|
+|     fixed src/js/init.js MainCssSet#dialog() transition-duration
+|
+* commit def760c6593552e6d1a0d591a16a00e48945f764
+| Author: Buendia <kenneth.buendia.code@gmail.com>
+| Date:   Thu Jul 20 07:07:11 2023 +0900
+|
+|     fixed src/js/init.js DateCollection#setDataToCollection()
+|
+* commit 6a0d353f6897ee5a88a99718fa53a69b73e2e65a
+| Author: Buendia <kenneth.buendia.code@gmail.com>
+| Date:   Wed Jul 19 16:27:40 2023 +0900
+|
+|     fixed src/js/init.js class DateTime method parse~
+|
+* commit 45adc36e5d00ebf9cc5a4a7be67e59aca1ead72b
+| Author: Buendia <kenneth.buendia.code@gmail.com>
+| Date:   Wed Jul 19 15:54:44 2023 +0900
+|
+|     fixed src/js/init.js class DateCard constructor
+|
+* commit f73c198ba30a4ae0794894269f0b2422168d6d1d
+| Author: Buendia <kenneth.buendia.code@gmail.com>
+| Date:   Wed Jul 19 15:38:17 2023 +0900
+|
+|     edit: src/js/init.js class DateCard, DateCollection
+|
+* commit a2f2e65a1b87dc15407bddab98c6dc3d3e699e6a
+| Author: Buendia <kenneth.buendia.code@gmail.com>
+| Date:   Wed Jul 19 10:31:02 2023 +0900
+|
+|     fixed src/tmplt/main.html script element
+|
+* commit 8789a7ef22ec50d0a43b39c9499152e8d4b0214e
+| Author: Buendia <kenneth.buendia.code@gmail.com>
+| Date:   Wed Jul 19 09:29:10 2023 +0900
+|
+|     improved src/js/init.js class DateCollection
+|
+* commit e3d8e297558301175c128938807e7d9e27940463
+| Author: Buendia <kenneth.buendia.code@gmail.com>
+| Date:   Mon Jul 17 21:53:48 2023 +0900
+|
+|     changed .gitignore
+|
+* commit a19972c2a68d8c48c3ef21d294f22e1613a7d59d
+* commit f46e99f4adb94fc7daeb19f78572e4a4fd51c513 (HEAD -> datatime-register)
+| Author: Buendia <kenneth.buendia.code@gmail.com>
+| Date:   Thu Jul 20 17:14:05 2023 +0900
+|
+|     improved src/js/init.js DateCard#createDateCard
+|
+* commit b90eabf829f50329759d3ab0f67d524344b3b78f
+| Author: Buendia <kenneth.buendia.code@gmail.com>
+| Date:   Thu Jul 20 14:30:19 2023 +0900
+|
+|     improved src/js/init.js DateCard, TimeCard, Timer
+|
+* commit 9cb20cfdaed9c0ad471507ef82298a00f0cb7bde
+| Author: Buendia <kenneth.buendia.code@gmail.com>
+| Date:   Thu Jul 20 12:22:45 2023 +0900
+|
+~/.../forestwizard/timer $ vim index.html
+~/.../forestwizard/timer $ git commit -am 'improved src/js/init.js DateCollection setDataToCollection() showCards()'
+[datatime-register bf201c6] improved src/js/init.js DateCollection setDataToCollection() showCards()
+ 2 files changed, 37 insertions(+), 23 deletions(-)
+~/.../forestwizard/timer $ git status
+On branch datatime-register
+nothing to commit, working tree clean
+~/.../forestwizard/timer $ git status
+On branch datatime-register
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   src/js/init.js
+
+no changes added to commit (use "git add" and/or "git commit -a")
+~/.../forestwizard/timer $ git diff HEAD
+diff --git a/src/js/init.js b/src/js/init.js
+index 431ad43..dac6e79 100644
+--- a/src/js/init.js
++++ b/src/js/init.js
+@@ -218,6 +218,7 @@ class DateCard {
+         this.title = title;
+         //console.log(this.date);
+         //console.log(this.time);
++        if(date != '') this.time = [0, 0];
+         this.created_stamp = c_stamp ?
+             c_stamp : new Date().getTime();
+         this.future_stamp = f_stamp ?
+@@ -357,10 +358,6 @@ class DateCard {
+         return this.card_info;
+     }
+
+:...skipping...
+diff --git a/src/js/init.js b/src/js/init.js
+index 431ad43..dac6e79 100644
+--- a/src/js/init.js
++++ b/src/js/init.js
+@@ -218,6 +218,7 @@ class DateCard {
+         this.title = title;
+         //console.log(this.date);
+         //console.log(this.time);
++        if(date != '') this.time = [0, 0];
+         this.created_stamp = c_stamp ?
+             c_stamp : new Date().getTime();
+         this.future_stamp = f_stamp ?
+@@ -357,10 +358,6 @@ class DateCard {
+diff --git a/src/js/init.js b/src/js/init.js
+index 431ad43..dac6e79 100644
+--- a/src/js/init.js
++++ b/src/js/init.js
+@@ -218,6 +218,7 @@ class DateCard {
+         this.title = title;
+         //console.log(this.date);
+         //console.log(this.time);
+diff --git a/src/js/init.js b/src/js/init.js
+index 431ad43..dac6e79 100644
+--- a/src/js/init.js
++++ b/src/js/init.js
+@@ -218,6 +218,7 @@ class DateCard {
+         this.title = title;
+         //console.log(this.date);
+         //console.log(this.time);
++        if(date != '') this.time = [0, 0];
+         this.created_stamp = c_stamp ?
+             c_stamp : new Date().getTime();
+         this.future_stamp = f_stamp ?
+@@ -357,10 +358,6 @@ class DateCard {
+         return this.card_info;
+     }
+
+-    getDateCard() {
+-        return this.date_card;
+diff --git a/src/js/init.js b/src/js/init.js
+index 431ad43..dac6e79 100644
+--- a/src/js/init.js
++++ b/src/js/init.js
+diff --git a/src/js/init.js b/src/js/init.js
+index 431ad43..dac6e79 100644
+--- a/src/js/init.js
++++ b/src/js/init.js
+@@ -218,6 +218,7 @@ class DateCard {
+         this.title = title;
+         //console.log(this.date);
+diff --git a/src/js/init.js b/src/js/init.js
+index 431ad43..dac6e79 100644
+--- a/src/js/init.js
++++ b/src/js/init.js
+@@ -218,6 +218,7 @@ class DateCard {
+         this.title = title;
+         //console.log(this.date);
+         //console.log(this.time);
++        if(date != '') this.time = [0, 0];
+         this.created_stamp = c_stamp ?
+             c_stamp : new Date().getTime();
+         this.future_stamp = f_stamp ?
+@@ -357,10 +358,6 @@ class DateCard {
++        if(date != '') this.time = [0, 0];
+         this.created_stamp = c_stamp ?
+             c_stamp : new Date().getTime();
+         this.future_stamp = f_stamp ?
+@@ -357,10 +358,6 @@ class DateCard {
+         return this.card_info;
+         //console.log(this.date);
+         //console.log(this.time);
++        if(date != '') this.time = [0, 0];
+         this.created_stamp = c_stamp ?
+             c_stamp : new Date().getTime();
+         this.future_stamp = f_stamp ?
+@@ -357,10 +358,6 @@ class DateCard {
+         return this.card_info;
+     }
+
+-    getDateCard() {
+-        return this.date_card;
+-    }
+-
+     parseFormDate(date) {
+         //console.log(date);
+         if(date == '') {
+@@ -418,6 +415,10 @@ class DateCard {
+         <span id="seconds"> 00 </span> ?
+         `;
+     }
++
++    toElement() {
++        return this.date_card;
++    }
+ }
+
+ class DateCollection {
+@@ -440,7 +441,25 @@ class DateCollection {
+     }
+
+     indexOfCard(future_stamp, created_stamp) {
++        let collection = this.collection;
++        let card;
++        for(let idx in collection) {
++            card = collection[idx];
++            if(
++                card.future_stamp == future_stamp &&
++                card.created_stamp == created_stamp
++            ) {
++                return idx;
++            }
++            continue;
++        }
++    }
+ }
+
+ class DateCollection {
+@@ -440,7 +441,25 @@ class DateCollection {
+     }
+
+     indexOfCard(future_stamp, created_stamp) {
+         return this.card_info;
+     }
+
+-    getDateCard() {
+-        return this.date_card;
+-    }
+-
+     parseFormDate(date) {
+         //console.log(date);
+         if(date == '') {
+@@ -418,6 +415,10 @@ class DateCard {
+         <span id="seconds"> 00 </span> ?
+         `;
+     }
++
++    toElement() {
++        return this.date_card;
++    }
+ }
+
+ class DateCollection {
+@@ -440,7 +441,25 @@ class DateCollection {
+     }
+
+     indexOfCard(future_stamp, created_stamp) {
++        let collection = this.collection;
++        let card;
++        for(let idx in collection) {
++            card = collection[idx];
++            if(
++                card.future_stamp == future_stamp &&
++                card.created_stamp == created_stamp
++            ) {
++                return idx;
++            }
++            continue;
++        }
++    }
+
++    insert(new_card, idx) {
++        let container = this.card_container
++        let old_card = container.children[idx];
+ class DateCollection {
+@@ -440,7 +441,25 @@ class DateCollection {
+     }
+
+     indexOfCard(future_stamp, created_stamp) {
++        let collection = this.collection;
++        let card;
++        for(let idx in collection) {
++            card = collection[idx];
++            if(
++                card.future_stamp == future_stamp &&
++                card.created_stamp == created_stamp
++            ) {
++                return idx;
++            }
++            continue;
++        }
++    }
+
++    insert(new_card, idx) {
++        let container = this.card_container
++        let old_card = container.children[idx];
++        //console.log(container);
++        container.insertBefore(new_card, old_card);
+     }
+
+     readDataFromStorage(storage_name) {
+@@ -469,8 +488,23 @@ class DateCollection {
+         this.readDataFromStorage(this.storage_name);
+         console.log(this.data);
+         this.setDataToCollection();
++
++        let idx = this.indexOfCard(
+@@ -469,8 +488,23 @@ class DateCollection {
+         this.readDataFromStorage(this.storage_name);
+         console.log(this.data);
+         this.setDataToCollection();
++
++        let idx = this.indexOfCard(
++            card_info.future_stamp, card_info.created_stamp
++        );
++        console.log(idx)
++        this.insert(date_card.toElement(), idx);
++
++        let datetime = new Date(
++            card_info.date[0],
++            card_info.date[1],
++            card_info.date[2],
++            card_info.time[0],
++            card_info.time[1],
++        );
++        date_card.runTimer(datetime);
+         //let collection_str = JSON.stringify(this.collection);
+-        this.showCards();
++        //this.showCards();
+     }
+
+     /*renewCollection() {
+@@ -511,7 +545,7 @@ class DateCollection {
+         if(data.size == 0) {
+             return;
+         };
+-        let collection = this.collection;
++        let collection = new Array();
+         let future_stamp_keys = Object.keys(data).sort();
+         console.log(future_stamp_keys);
+         for(let f_idx in future_stamp_keys) {
+@@ -556,7 +590,7 @@ class DateCollection {
+         let card;
+diff --git a/src/js/init.js b/src/js/init.js
+index 431ad43..dac6e79 100644
+--- a/src/js/init.js
++++ b/src/js/init.js
+@@ -218,6 +218,7 @@ class DateCard {
+         this.title = title;
+         //console.log(this.date);
+         //console.log(this.time);
++        if(date != '') this.time = [0, 0];
+         this.created_stamp = c_stamp ?
+             c_stamp : new Date().getTime();
+         this.future_stamp = f_stamp ?
+@@ -357,10 +358,6 @@ class DateCard {
+         return this.card_info;
+     }
+
+~/.../forestwizard/timer $ git
+usage: git [--version] [--help] [-C <path>] [-c <name>=<value>]
+           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]
+           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--bare]
+           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]
+           [--super-prefix=<path>] [--config-env=<name>=<envvar>]
+           <command> [<args>]
+
+These are common Git commands used in various situations:
+
+start a working area (see also: git help tutorial)
+   clone             Clone a repository into a new directory
+   init              Create an empty Git repository or reinitialize an existing one
+
+work on the current change (see also: git help everyday)
+   add               Add file contents to the index
+   mv                Move or rename a file, a directory, or a symlink
+   restore           Restore working tree files
+   rm                Remove files from the working tree and from the index
+   sparse-checkout   Initialize and modify the sparse-checkout
+
+examine the history and state (see also: git help revisions)
+   bisect            Use binary search to find the commit that introduced a bug
+   diff              Show changes between commits, commit and working tree, etc
+   grep              Print lines matching a pattern
+   log               Show commit logs
+   show              Show various types of objects
+   status            Show the working tree status
+
+grow, mark and tweak your common history
+   branch            List, create, or delete branches
+   commit            Record changes to the repository
+   merge             Join two or more development histories together
+   rebase            Reapply commits on top of another base tip
+   reset             Reset current HEAD to the specified state
+   switch            Switch branches
+   tag               Create, list, delete or verify a tag object signed with GPG
+
+collaborate (see also: git help workflows)
+   fetch             Download objects and refs from another repository
+   pull              Fetch from and integrate with another repository or a local branch
+   push              Update remote refs along with associated objects
+
+'git help -a' and 'git help -g' list available subcommands and some
+concept guides. See 'git help <command>' or 'git help <concept>'
+to read about a specific subcommand or concept.
+See 'git help git' for an overview of the system.
+~/.../forestwizard/timer $ git status
+On branch datatime-register
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   src/js/init.js
+
+no changes added to commit (use "git add" and/or "git commit -a")
+~/.../forestwizard/timer $ git add -A
+~/.../forestwizard/timer $ git status
+On branch datatime-register
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   src/js/init.js
+
+~/.../forestwizard/timer $ git commit
+[datatime-register 163a96b] improved about registring new datetime.
+ 1 file changed, 42 insertions(+), 8 deletions(-)
+~/.../forestwizard/timer $ git status
+On branch datatime-register
+nothing to commit, working tree clean
+~/.../forestwizard/timer $ git status
+On branch datatime-register
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   src/js/init.js
+
+no changes added to commit (use "git add" and/or "git commit -a")
+~/.../forestwizard/timer $ git diff HEAD
+diff --git a/src/js/init.js b/src/js/init.js
+index dac6e79..c94e5d5 100644
+--- a/src/js/init.js
++++ b/src/js/init.js
+@@ -336,18 +336,51 @@ class DateCard {
+         card.appendChild(title);
+         this.registerID(card_fragment);
+         card.appendChild(card_fragment);
++        card.future_stamp = this.future_stamp;
+         card.created_stamp = this.created_stamp;
+
+         let delete_btn = document.createElement('p');
+         delete_btn.textContent = '×';
+-        delete_btn.onclick = this.deleteCard;
++        delete_btn.onclick = this.confirmDeletion;
+         card.appendChild(delete_btn);
+         this.date_card = card;
+     }
+
+-    deleteCard(e) {
+-        console.log(DateCollection.date_collection);
+-        console.log(e.target.parentElement.created_stamp);
++    confirmDeletion(e) {
++        DateCollection.selected_card = e.target.parentElement;
++        let content = document.createElement('div');
++        let question = document.createElement('p');
++        question.innerHTML = `
++        <p>Are you sure you wanna delete this card?</p>
++        `;
++        let yes = document.createElement('span');
++        yes.innerText = 'yes';
++        yes.onclick = DateCard.delete;
++        let space = document.createElement('span');
++        space.innerText = '     ';
++        let no = document.createElement('span');
++        no.innerText = 'no';
++        no.onclick = () => {
++            DateCollection.selected_card = undefined;
++            DateCard.confirm.close();
++        };
++        content.appendChild(question);
++        content.appendChild(yes);
++        content.appendChild(space);
++        content.appendChild(no);
++
++        DateCard.confirm = new Dialog(content);
++        DateCard.confirm.show();
++        content.appendChild(yes);
++        content.appendChild(space);
++        content.appendChild(no);
++
++        DateCard.confirm = new Dialog(content);
++        DateCard.confirm.show();
++    }
++
++    static delete(e) {
++        console.log('deleting');
++        let elm = DateCollection.selected_card;
++        DateCollection.date_collection.deleteCard(elm)
++
++        //console.log(DateCollection.date_collection);
++        //console.log(e.target.parentElement.created_stamp);
+diff --git a/src/js/init.js b/src/js/init.js
+index dac6e79..c94e5d5 100644
+--- a/src/js/init.js
++++ b/src/js/init.js
+@@ -336,18 +336,51 @@ class DateCard {
+         card.appendChild(title);
+         this.registerID(card_fragment);
+         card.appendChild(card_fragment);
++        card.future_stamp = this.future_stamp;
+         card.created_stamp = this.created_stamp;
+
+         let delete_btn = document.createElement('p');
+         delete_btn.textContent = '×';
+-        delete_btn.onclick = this.deleteCard;
++        delete_btn.onclick = this.confirmDeletion;
+         card.appendChild(delete_btn);
+         this.date_card = card;
+     }
+
+-    deleteCard(e) {
+-        console.log(DateCollection.date_collection);
+-        console.log(e.target.parentElement.created_stamp);
++    confirmDeletion(e) {
++        DateCollection.selected_card = e.target.parentElement;
++        let content = document.createElement('div');
++        let question = document.createElement('p');
++        question.innerHTML = `
++        <p>Are you sure you wanna delete this card?</p>
++        `;
++        let yes = document.createElement('span');
++        yes.innerText = 'yes';
++        yes.onclick = DateCard.delete;
++        let space = document.createElement('span');
++        space.innerText = '     ';
++        let no = document.createElement('span');
++        no.innerText = 'no';
++        no.onclick = () => {
++            DateCollection.selected_card = undefined;
++            DateCard.confirm.close();
++        };
++        content.appendChild(question);
++        content.appendChild(yes);
++        content.appendChild(space);
++        content.appendChild(no);
++
++        DateCard.confirm = new Dialog(content);
++        DateCard.confirm.show();
++    }
++
++    static delete(e) {
++        console.log('deleting');
++        let elm = DateCollection.selected_card;
++        DateCollection.date_collection.deleteCard(elm)
++
+diff --git a/src/js/init.js b/src/js/init.js
+index dac6e79..c94e5d5 100644
+--- a/src/js/init.js
++++ b/src/js/init.js
+@@ -336,18 +336,51 @@ class DateCard {
+         card.appendChild(title);
+         this.registerID(card_fragment);
+         card.appendChild(card_fragment);
++        card.future_stamp = this.future_stamp;
+         card.created_stamp = this.created_stamp;
+
+         let delete_btn = document.createElement('p');
+         delete_btn.textContent = '×';
+-        delete_btn.onclick = this.deleteCard;
++        delete_btn.onclick = this.confirmDeletion;
+         card.appendChild(delete_btn);
+         this.date_card = card;
+     }
+
+-    deleteCard(e) {
+-        console.log(DateCollection.date_collection);
+-        console.log(e.target.parentElement.created_stamp);
++    confirmDeletion(e) {
++        DateCollection.selected_card = e.target.parentElement;
++        let content = document.createElement('div');
++        let question = document.createElement('p');
++        question.innerHTML = `
++        <p>Are you sure you wanna delete this card?</p>
++        `;
++        let yes = document.createElement('span');
++        yes.innerText = 'yes';
++        yes.onclick = DateCard.delete;
++        let space = document.createElement('span');
++        space.innerText = '     ';
++        let no = document.createElement('span');
++        no.innerText = 'no';
++        no.onclick = () => {
++            DateCollection.selected_card = undefined;
++            DateCard.confirm.close();
++        };
++        content.appendChild(question);
++        content.appendChild(yes);
++        content.appendChild(space);
++        content.appendChild(no);
++
++        DateCard.confirm = new Dialog(content);
++        DateCard.confirm.show();
++    }
++
++    static delete(e) {
++        console.log('deleting');
++        let elm = DateCollection.selected_card;
++        DateCollection.date_collection.deleteCard(elm)
++
++        //console.log(DateCollection.date_collection);
++        //console.log(e.target.parentElement.created_stamp);
++
+     }
+
+     finish() {
+@@ -423,6 +456,7 @@ class DateCard {
+
+ class DateCollection {
+     static date_collection;
++    static selected_card;
+
+     constructor(card_container_id, storage_name) {
+         this.storage_name = storage_name;
+@@ -432,8 +466,26 @@ class DateCollection {
+         this.setDataToCollection();
+diff --git a/src/js/init.js b/src/js/init.js
+index dac6e79..c94e5d5 100644
+--- a/src/js/init.js
++++ b/src/js/init.js
+@@ -336,18 +336,51 @@ class DateCard {
+         card.appendChild(title);
+         this.registerID(card_fragment);
+         card.appendChild(card_fragment);
++        card.future_stamp = this.future_stamp;
+         card.created_stamp = this.created_stamp;
+
+         let delete_btn = document.createElement('p');
+         delete_btn.textContent = '×';
+-        delete_btn.onclick = this.deleteCard;
++        delete_btn.onclick = this.confirmDeletion;
+         card.appendChild(delete_btn);
+
+~/.../forestwizard/timer $ git diff HEAD | vim
+Vim: Warning: Input is not from a terminal
+Vim: Error reading input, exiting...
+Vim: preserving files...
+Vim: Finished.
+~/.../forestwizard/timer $ git commit -am 'implemented feature deleting a card'
+[datatime-register 47d617a] implemented feature deleting a card
+ 1 file changed, 64 insertions(+), 6 deletions(-)
+~/.../forestwizard/timer $ git status
+On branch datatime-register
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        .swp
+
+nothing added to commit but untracked files present (use "git add" to track)
+~/.../forestwizard/timer $ ls -a
+.   .git        .htaccess  .vscode   git_log     run.js   specification
+..  .gitignore  .swp       archives  index.html  run0.js  src
+~/.../forestwizard/timer $ vim .swp
+~/.../forestwizard/timer $ vim .gitignore
+~/.../forestwizard/timer $ git status
+On branch datatime-register
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   .gitignore
+
+no changes added to commit (use "git add" and/or "git commit -a")
+~/.../forestwizard/timer $ git status
+On branch datatime-register
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   .gitignore
+        modified:   src/js/init.js
+
+no changes added to commit (use "git add" and/or "git commit -a")
+~/.../forestwizard/timer $ git commit -am 'improved src/js/init.js DateCard.delete(), DateCollection#deleteCard()'
+[datatime-register ac8ad83] improved src/js/init.js DateCard.delete(), DateCollection#deleteCard()
+ 2 files changed, 7 insertions(+), 3 deletions(-)
+~/.../forestwizard/timer $ git status
+On branch datatime-register
+nothing to commit, working tree clean
+~/.../forestwizard/timer $ git diff HEAD
+diff --git a/src/js/init.js b/src/js/init.js
+index 7062981..3ee19ee 100644
+--- a/src/js/init.js
++++ b/src/js/init.js
+@@ -386,7 +386,7 @@ class DateCard {
+     }
+
+     finish() {
+-
++
+     }
+
+     getDateCardInfo() {
+~/.../forestwizard/timer $ git status
+On branch datatime-register
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   src/js/init.js
+
+no changes added to commit (use "git add" and/or "git commit -a")
+~/.../forestwizard/timer $ git status
+On branch datatime-register
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   src/js/init.js
+
+no changes added to commit (use "git add" and/or "git commit -a")
+~/.../forestwizard/timer $ git commit -am 'src/js/init.js: implement DateCard#finish(), improved DateCollection#deleteCard(), improved Timer#timer()'
+[datatime-register b37a2e8] src/js/init.js: implement DateCard#finish(), improved DateCollection#deleteCard(), improved Timer#timer()
+ 1 file changed, 8 insertions(+), 5 deletions(-)
+~/.../forestwizard/timer $ git commit -am 'improved DateCollection#setDataToCollection()'
+[datatime-register 6983ecf] improved DateCollection#setDataToCollection()
+ 1 file changed, 4 insertions(+)
+~/.../forestwizard/timer $ git status
+On branch datatime-register
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   src/js/init.js
+
+no changes added to commit (use "git add" and/or "git commit -a")
+~/.../forestwizard/timer $ git commit -am "fixbug: when only date was given and time wasn't. at src/js/init.js DateCard#constructor()"
+[datatime-register 88b1129] fixbug: when only date was given and time wasn't. at src/js/init.js DateCard#constructor()
+ 1 file changed, 23 insertions(+), 5 deletions(-)
+~/.../forestwizard/timer $ git status                                                                                On branch datatime-register
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   src/js/init.js
+
+no changes added to commit (use "git add" and/or "git commit -a")
+~/.../forestwizard/timer $ git status
+On branch datatime-register
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   src/js/init.js
+
+no changes added to commit (use "git add" and/or "git commit -a")
+~/.../forestwizard/timer $ git commit -am 'implement DateCard#finish() at src/js/init.js'
+[datatime-register 28af30d] implement DateCard#finish() at src/js/init.js
+ 1 file changed, 8 insertions(+), 6 deletions(-)
+~/.../forestwizard/timer $ git status
+On branch datatime-register
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   src/js/init.js
+
+no changes added to commit (use "git add" and/or "git commit -a")
+~/.../forestwizard/timer $ git diff HEAD
+diff --git a/src/js/init.js b/src/js/init.js
+index 03708cf..144a51d 100644
+--- a/src/js/init.js
++++ b/src/js/init.js
+@@ -329,21 +329,33 @@ class DateCard {
+
+     createDateCard() {
+         let card = document.createElement('li');
+-        let card_fragment = this.buildFragment(
+-            this.template(), this
+-        );
++        card.style.cssText = new MainCssSet().card_style();
+         let title = document.createElement('p');
+         title.textContent =
+             this.card_info.title ? this.card_info.title :
+             this.defaultTitle();
++        title.style.cssText = new MainCssSet().title();
+         card.appendChild(title);
+-        this.registerID(card_fragment);
+-        card.appendChild(card_fragment);
++
++        let subtitle = document.createElement('p');
++        subtitle.innerText = this.viewDateTime();
++        subtitle.style.cssText = new MainCssSet().subtitle();
++        card.appendChild(subtitle);
++
++        let datetime = document.createElement('p');
++        let date_fragment = this.buildFragment(
++            this.template(), this
++        );
++        this.registerID(date_fragment);
++        datetime.style.cssText = new MainCssSet().datetime();
++        datetime.appendChild(date_fragment);
++        card.appendChild(datetime);
+         card.future_stamp = this.future_stamp;
+         card.created_stamp = this.created_stamp;
+
+         let delete_btn = document.createElement('p');
+-        delete_btn.textContent = '×';
++        delete_btn.textContent = 'sakujo';
++        delete_btn.style.cssText = new MainCssSet().delete_btn();
+         delete_btn.onclick = this.confirmDeletion;
+         card.appendChild(delete_btn);
+         this.date_card = card;
+@@ -353,29 +365,49 @@ class DateCard {
+         DateCollection.selected_card = e.target.parentElement;
+         let content = document.createElement('div');
+         let question = document.createElement('p');
++        question.style.cssText = "margin:10px";
+         question.innerHTML = `
+         <p>Are you sure you wanna delete this card?</p>
+         `;
++
+         let yes = document.createElement('span');
+         yes.innerText = 'yes';
+-        yes.onclick = DateCard.delete;
++        yes.style.cssText = new MainCssSet().delete_yes();
++        yes.onclick = () => {
++            yes.style.background = '#007eff';
++            yes.style.color = '#fff';
++            setTimeout(() => {
++                DateCard.delete();
++            }, 500);
++        }
+         let space = document.createElement('span');
+         space.innerText = '     ';
++
+         let no = document.createElement('span');
+         no.innerText = 'no';
++        no.style.cssText =  new MainCssSet().delete_no();
+         no.onclick = () => {
+-            DateCollection.selected_card = undefined;
+-            DateCard.confirm.close();
++            no.style.background = "#007eff";
++            no.style.color = "#fff";
++            setTimeout(()=>{
++                DateCollection.selected_card = undefined;
++                DateCard.confirm.close();
++            },500);
+         };
+         content.appendChild(question);
+         content.appendChild(yes);
+-        content.appendChild(space);
++        //content.appendChild(space);
+         content.appendChild(no);
+
+         DateCard.confirm = new Dialog(content);
+         DateCard.confirm.show();
+     }
+
++    defaultTitle() {
++        let title = "Title";
++        return title;
++    }
++
+     static delete(e) {
+         console.log('deleting');
+         let elm = DateCollection.selected_card;
+@@ -455,17 +487,33 @@ class DateCard {
+
+     template() {
+         return `
+-        <span id="weeks"> 00 </span> ?
+-        <span id="wkdays"> 00 </span> ?
+-        <span id="hours"> 00 </span> ??
+-        <span id="minutes"> 00 </span> ?
+-        <span id="seconds"> 00 </span> ?
++        <span id="weeks">?00?</span> ?
++        <span id="wkdays">?00?</span> ?
++        <span id="hours">?00?</span> ??
++        <span id="minutes">?00?</span> ?
++        <span id="seconds">?00?</span> ?
+         `;
+     }
+
+     toElement() {
+         return this.date_card;                                    }
++
++    viewDateTime() {                                         +        let hour, min;
++        if(this.time[0] == '0') {
++            hour = '00';                                     +        }else {
++            hour = this.time[0];                             +        }
++        if(this.time[1] == '0') {                            +            min = '00'
++        }else {
++            min = this.time[1];
++        }
++        let datetime = `${this.date[0]}nen ${this.date[1]+1}gatsu ${this.date[2]}nichi ${hour}:${min}`;
++        return datetime;                                     +    }
+ }
+
+ class DateCollection {                                       @@ -995,6 +1043,56 @@ class Timer {
+ }
+
+ class MainCssSet {
++    card_style() {
++        return `
++        position: relative;
++        `;
++    }
++    datetime() {
++        return `                                             +        margin: 10px auto;
++        color:green;
++        font: 2em bold;
++        `;
++    }
++
++    delete_btn() {
++        return `
++        position: relative;
++        left: 50%; bottom:0px;
++        transform-origin: 50% 50%;                           +        transform:translate(-50%, -50%);
++        color:red;
++        font:bold;                                           +        `;
++    }
++
++    delete_yes() {
++        return `
++        margin: 15px;
++        padding: 1px 10px;
++        position:relative;
++        border-radius: 10%;
++        left: 35%;
++        border: 1px solid #007eff;
++        background: #fff;
++        color: #000;
++        `;
++    }
++
++    delete_no() {
++        return `
++        margin: 15px;
++        padding: 1px 10px;
++        position:relative;
++        border-radius:10%;
++        border:1px solid #007eff;
++        background:#fff;
++        right: 35%;
++        color: #000;
++        `;
++    }
++
+     dialog_box() {
+         return `
+             position:fixed;
+@@ -1030,6 +1128,27 @@ class MainCssSet {
+         overflow-y:scroll;
+         `;
+     }
++
++    subtitle() {
++        return `
++        margin: auto 20px;
++            hour = '00';
++        }else {
++            hour = this.time[0];
++        }
++        if(this.time[1] == '0') {
++            min = '00'
++        }else {
++            min = this.time[1];
++        }                                                    +        let datetime = `${this.date[0]}nen ${this.date[1]+1}gatsu ${this.date[2]}nichi ${hour}:${min}`;
++        return datetime;
++    }
+ }
+
+ class DateCollection {
+@@ -995,6 +1043,56 @@ class Timer {
+ }
+
+ class MainCssSet {
++    card_style() {                                           +        return `
++        position: relative;
++        `;                                                   +    }
++    datetime() {                                             +        return `
++        margin: 10px auto;
++        color:green;
++        font: 2em bold;
++        `;
++    }                                                        +
++    delete_btn() {
++        return `                                             +        position: relative;
++        left: 50%; bottom:0px;
++        transform-origin: 50% 50%;
++        transform:translate(-50%, -50%);
+~/.../forestwizard/timer $ git commit -am 'improved styles and some methods at src/js/init.js'
+[datatime-register 104015d] improved styles and some methods at src/js/init.js
+ 1 file changed, 134 insertions(+), 15 deletions(-)
+~/.../forestwizard/timer $ git status                         On branch datatime-register
+Changes not staged for commit:                                  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   src/js/init.js
+no changes added to commit (use "git add" and/or "git commit -a")
+~/.../forestwizard/timer $ git commit -am 'fix design bugs'
+[datatime-register eb3a6ff] fix design bugs                    1 file changed, 3 insertions(+), 3 deletions(-)
+~/.../forestwizard/timer $ git status
+On branch datatime-register
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   src/css/style.css
+        modified:   src/js/init.js                                    modified:   src/tmplt/main.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+~/.../forestwizard/timer $ git commit -am 'translate text words to japanese; fix some ui/ux design bugs'
+[datatime-register 05794d2] translate text words to japanese; fix some ui/ux design bugs                                     3 files changed, 53 insertions(+), 25 deletions(-)
+~/.../forestwizard/timer $ git status
+On branch datatime-register
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   src/js/init.js
+        modified:   src/tmplt/main.html
+
+no changes added to commit (use "git add" and/or "git commit -a")                                                           ~/.../forestwizard/timer $ git commit -am 'improved createDateCard(), viewDateTime() of DateCard at src/js/init.js'
+[datatime-register 0b58a36] improved createDateCard(), viewDateTime() of DateCard at src/js/init.js                          2 files changed, 12 insertions(+), 6 deletions(-)
+~/.../forestwizard/timer $ git status
+On branch datatime-register
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   src/css/style.css                                 modified:   src/js/init.js
+        modified:   src/tmplt/main.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+~/.../forestwizard/timer $ git commit -am 'improved logo, DateCard#viewDateTime()'
+[datatime-register e79da00] improved logo, DateCard#viewDateTime()
+ 3 files changed, 22 insertions(+), 13 deletions(-)
+~/.../forestwizard/timer $ git status
+On branch datatime-register
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)    (use "git restore <file>..." to discard changes in working directory)
+        modified:   src/css/style.css
+        modified:   src/js/app.js
+        modified:   src/js/init.js
+        modified:   src/tmplt/main.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+~/.../forestwizard/timer $ git commit -am 'write down the release date'
+[datatime-register 5712ba4] write down the release date
+ 4 files changed, 7 insertions(+), 3 deletions(-)
+~/.../forestwizard/timer $
+
