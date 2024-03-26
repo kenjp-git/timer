@@ -3,6 +3,7 @@ git_log
 .vscode
 archives/
 .DS_Store
+.gitignore
 .htaccess
 git_log
 run.js
