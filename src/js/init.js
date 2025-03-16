@@ -965,7 +965,7 @@ class TimeCard {
 
             }
         };
-        xhr.open('GET',`/timer/src/tmplt/${this.tmplt}.html`, true);
+        xhr.open('GET',`/src/tmplt/${this.tmplt}.html`, true);
         xhr.send(null);
     }
 

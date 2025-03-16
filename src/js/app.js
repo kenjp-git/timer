@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function(){
     doc.setAttribute('id','day');
     doc.style.position = 'relative';
     
-    const mngr = new ComponentManager('/timer/src/tmplt/');
+    const mngr = new ComponentManager('/src/tmplt/');
     
     /*const app = new ComponentManager(root, frame);
     app.components_path = '';
